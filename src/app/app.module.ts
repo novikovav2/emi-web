@@ -7,6 +7,9 @@ import {PublicModule} from "./public/public.module";
 import {PrivateModule} from "./private/private.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./services/auth.service";
+import {Interceptors} from "./services/interceptors";
 
 @NgModule({
   declarations: [
@@ -18,9 +21,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PublicModule,
     PrivateModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    Interceptors
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

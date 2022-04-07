@@ -3,15 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import {PublicComponent} from "./public/public.component";
 import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
+import {AUTH_PAGE, LOGIN_PAGE, PRIVATE_PAGE} from "./consts";
 
 const routes: Routes = [
-  { path: 'auth',
+  { path: AUTH_PAGE,
     component: PublicComponent,
     children: [
-      { path: 'login', component: LoginComponent }
+      { path: LOGIN_PAGE, component: LoginComponent }
     ]
   },
-  { path: 'private', component: PrivateComponent }
+  { path: PRIVATE_PAGE, component: PrivateComponent }
 ];
 
 @NgModule({

@@ -63,7 +63,7 @@
   flex-direction: column;
 
   &-control {
-    margin-top: 24px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
   }
@@ -90,6 +90,10 @@
     &.ng-invalid.ng-touched {
       border: 1px solid var(--brandRed);
     }
+
+    &:disabled {
+      background-color: var(--light);
+    }
   }
 
   &-submit {
@@ -109,8 +113,12 @@
   &-warning {
     color: var(--brandRed);
     text-align: left;
-    font-size: 14px;
     margin-top: 4px;
+    min-height: 20px;
+
+    &_text {
+      font-size: 14px;
+    }
   }
 }
 
@@ -127,3 +135,12 @@
   }
 }
 
+.service {
+  margin-top: 50px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--brandRed);
+}

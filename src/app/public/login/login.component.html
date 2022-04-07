@@ -8,20 +8,33 @@
       <label for="email" class="form-label">Электронная почта</label>
       <input id="email" class="form-input" formControlName="email" />
 
-      <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched"
-           class="form-warning">
-        Необходимо указать правильный адрес электронной почты
+      <div class="form-warning">
+        <p *ngIf="form.controls['email'].invalid && form.controls['email'].touched"
+           class="form-warning_text">
+          Необходимо указать правильный адрес электронной почты
+        </p>
       </div>
     </div>
 
     <div class="form-control">
       <label for="password" class="form-label">Пароль</label>
       <input id="password"  class="form-input" type="password" formControlName="password" />
+
+      <div class="form-warning">
+        <p *ngIf="form.controls['password'].invalid && form.controls['password'].touched"
+           class="form-warning_text">
+          Пароль должен быть не короче 6 символов
+        </p>
+      </div>
     </div>
 
     <button type="submit" class="button form-submit" [disabled]="!form.valid" >
       Войти
     </button>
-
   </form>
+
+  <div class="service">
+    <fa-icon [icon]="faSpin" size="3x" [pulse]="true" *ngIf="spinShow"></fa-icon>
+    {{ error }}
+  </div>
 </div>
