@@ -1,6 +1,13 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from "@angular/common/http";
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {Observable, tap} from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 import {TOKEN} from "../consts";
 
 @Injectable()
@@ -24,10 +31,23 @@ export class AuthInterceptor implements HttpInterceptor {
               localStorage.setItem(TOKEN, newToken)
             }
           }
-        })
+        }),
+        catchError(this.errorHandler)
       )
     } else {
       return next.handle(req)
     }
+  }
+
+  private errorHandler(error: HttpErrorResponse) {
+    let errorText = ''
+    if (error.status === 401) {
+      errorText = 'Вы не авторизованы'
+      localStorage.removeItem(TOKEN)
+    } else {
+      errorText = 'Ууууупс... Что-то пошло не так'
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error(errorText));
   }
 }

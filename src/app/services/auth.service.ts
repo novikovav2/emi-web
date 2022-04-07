@@ -34,6 +34,11 @@ export class AuthService {
     return this.http.get(environment.apiUrl + this.verifyUrl)
   }
 
+  isLoggedIn() {
+    const token = localStorage.getItem(TOKEN)
+    return !!token
+  }
+
   private static setSession(authResult: SignedInUserModel) {
     localStorage.setItem(TOKEN, authResult.token)
     localStorage.setItem(EXPIRE_AT, authResult.expireAt)

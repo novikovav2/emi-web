@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./services/auth.service";
 import {Interceptors} from "./services/interceptors";
+import {AuthGuard} from "./services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {Interceptors} from "./services/interceptors";
   ],
   providers: [
     AuthService,
-    Interceptors
+    Interceptors,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
