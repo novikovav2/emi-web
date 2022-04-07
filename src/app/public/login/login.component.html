@@ -1,0 +1,27 @@
+<div class="right-container">
+  <h2 class="right-title">
+    Вход в ЭМИ
+  </h2>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="email" class="form-label">Электронная почта</label>
+      <input id="email" class="form-input" formControlName="email" />
+
+      <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched"
+           class="form-warning">
+        Необходимо указать правильный адрес электронной почты
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="password" class="form-label">Пароль</label>
+      <input id="password"  class="form-input" type="password" formControlName="password" />
+    </div>
+
+    <button type="submit" class="button form-submit" [disabled]="!form.valid" >
+      Войти
+    </button>
+
+  </form>
+</div>

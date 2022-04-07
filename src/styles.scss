@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --brandRed: #f06445;
+  --brandGreen: #4fc9da;
+  --brandGreen-light: rgb(114, 212, 225);
+  --brandGreen-dark: #30a6b6;
+  --light: rgba(248,246,242,.3);
+  --dark: #f6f1e9;
+  --dark-hover: #f6f1e9;
+  --textDark: #211f1c;
+  --textLight: #968e7e;
+  --textMain: #716d66;
+  --textWhite: #FFFFFF;
+  --fontRegular: Ubuntu, Helvetica, sans-serif;
+  --fontHeader: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontRegular);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("assets/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("assets/fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
