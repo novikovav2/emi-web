@@ -6,3 +6,6 @@ export const LOGIN_PAGE = 'login'
 export const AUTH_LOGIN_PAGE = AUTH_PAGE + '/' + LOGIN_PAGE
 export const PRIVATE_PAGE = ''
 
+export const ROOMS = 'rooms'
+export const RACKS = 'racks'
+

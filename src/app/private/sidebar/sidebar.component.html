@@ -10,16 +10,16 @@
     <ul class="sidebar-list">
       <li *ngFor="let item of menuItems" class="sidebar-list_item">
         <fa-icon [icon]="iconList" class="sidebar-list_bullet" size="1x"></fa-icon>
-        <a [routerLink]="[item.link]" class="sidebar-list_link">
+        <a [routerLink]="[item.link]" class="sidebar-list_link" [ngClass]="{'active': item.active }">
           {{ item.title }}
         </a>
       </li>
     </ul>
   </div>
   <div class="sidebar-bottom sidebar-container">
-    <a class="sidebar-bottom_text" (click)="onExit()">
+    <a class="sidebar-bottom_text" (click)="logout()">
       Выход
     </a>
-    <fa-icon [icon]="iconExit" class="sidebar-bottom_text" size="1x" (click)="onExit()"></fa-icon>
+    <fa-icon [icon]="iconExit" class="sidebar-bottom_text" size="1x" (click)="logout()"></fa-icon>
   </div>
 </nav>
