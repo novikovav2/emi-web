@@ -36,7 +36,7 @@ export class AuthService {
 
   isLoggedIn() {
     const token = localStorage.getItem(TOKEN)
-    return !!token
+    return !!token      // return token ? true : false
   }
 
   private static setSession(authResult: SignedInUserModel) {

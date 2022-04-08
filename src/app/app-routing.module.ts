@@ -17,7 +17,10 @@ const routes: Routes = [
     component: PrivateComponent,
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    pathMatch: 'full'
+    pathMatch: 'full',
+    children: [
+
+    ]
   },
   { path: '**', redirectTo: AUTH_LOGIN_PAGE }
 ];

@@ -1,13 +1,7 @@
-PRIVATE
-
-<a (click)="logout()">
-  LOGOUT
-</a>
-
-
-<br>
-Valid: {{ valid }}
-
-<button (click)="verify()">
-  Validate
-</button>
+<div class="private">
+  <app-sidebar></app-sidebar>
+  <div>
+    <router-outlet></router-outlet>
+    FOOOTER
+  </div>
+</div>
