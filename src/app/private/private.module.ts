@@ -6,13 +6,15 @@ import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {RoomsComponent} from "./rooms/rooms.component";
 import {RacksComponent} from "./racks/racks.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @NgModule({
   declarations: [
     PrivateComponent,
     SidebarComponent,
     RoomsComponent,
-    RacksComponent
+    RacksComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import {RacksComponent} from "./racks/racks.component";
     PrivateComponent,
     SidebarComponent,
     RoomsComponent,
-    RacksComponent
+    RacksComponent,
+    FooterComponent
   ]
 })
 export class PrivateModule {
