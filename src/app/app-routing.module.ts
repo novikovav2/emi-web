@@ -5,7 +5,7 @@ import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
 import {AUTH_LOGIN_PAGE, AUTH_PAGE, LOGIN_PAGE, PRIVATE_PAGE, RACKS, ROOMS} from "./consts";
 import {AuthGuard} from "./services/auth.guard";
-import {RoomsComponent} from "./private/rooms/rooms.component";
+import {RoomsIndexComponent} from "./private/rooms/index/rooms-index.component";
 import {RacksComponent} from "./private/racks/racks.component";
 
 const routes: Routes = [
@@ -21,7 +21,11 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     // pathMatch: 'full',
     children: [
-      { path: ROOMS, component: RoomsComponent },
+      { path: ROOMS,
+        children: [
+          { path: '', component: RoomsIndexComponent}
+        ]
+      },
       { path: RACKS, component: RacksComponent }
     ]
   },

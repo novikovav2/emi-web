@@ -4,17 +4,22 @@ import {CommonModule} from "@angular/common";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {RoomsComponent} from "./rooms/rooms.component";
+import {RoomsIndexComponent} from "./rooms/index/rooms-index.component";
 import {RacksComponent} from "./racks/racks.component";
 import {FooterComponent} from "./footer/footer.component";
+import {RoomsService} from "../services/rooms.service";
+import {RoomItemComponent} from "./rooms/index/room/room-item.component";
+import {RoomsComponent} from "./rooms/rooms.component";
 
 @NgModule({
   declarations: [
     PrivateComponent,
     SidebarComponent,
-    RoomsComponent,
+    RoomsIndexComponent,
     RacksComponent,
-    FooterComponent
+    FooterComponent,
+    RoomsComponent,
+    RoomItemComponent
   ],
   imports: [
     CommonModule,
@@ -24,9 +29,14 @@ import {FooterComponent} from "./footer/footer.component";
   exports: [
     PrivateComponent,
     SidebarComponent,
-    RoomsComponent,
+    RoomsIndexComponent,
     RacksComponent,
-    FooterComponent
+    FooterComponent,
+    RoomsComponent,
+    RoomItemComponent
+  ],
+  providers: [
+    RoomsService
   ]
 })
 export class PrivateModule {

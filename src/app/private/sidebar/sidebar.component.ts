@@ -37,7 +37,6 @@ export class SidebarComponent implements OnInit {
             item.active = item.link === url
           })
         }
-        console.log(this.menuItems)
       })
   }
 
