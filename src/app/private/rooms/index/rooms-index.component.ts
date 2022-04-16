@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {RoomsService} from "../../../services/rooms.service";
 import {Room} from "../../../models/room";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-rooms-index',
@@ -9,6 +10,8 @@ import {Room} from "../../../models/room";
 })
 export class RoomsIndexComponent implements OnInit {
   rooms: Room[] = []
+  spinnerShow = true
+  spinnerIcon = faSpinner
 
   constructor(private roomService: RoomsService) { }
 
@@ -16,8 +19,8 @@ export class RoomsIndexComponent implements OnInit {
     this.roomService.getRooms()
       .subscribe({
         next: (data) => {
-          console.log("Rooms: ", data)
           this.rooms = data
+          this.spinnerShow = false
         },
         error: (error) => {
           console.log(error)
