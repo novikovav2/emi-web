@@ -8,7 +8,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['../../private.component.scss']
 })
 export class RoomsFormComponent implements OnChanges {
-  @Input() room: Room = { id: 0, title: ''}
+  @Input() room: Room = { id: '0', title: ''}
   @Output() submitEvent = new EventEmitter<Room>()
   @Output() resetEvent = new EventEmitter()
 

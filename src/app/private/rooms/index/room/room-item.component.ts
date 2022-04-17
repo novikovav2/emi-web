@@ -1,8 +1,9 @@
-import {Component, Input, HostListener, ElementRef} from "@angular/core";
+import {Component, Input, HostListener, ElementRef, Output, EventEmitter} from "@angular/core";
 import {faDiceSix, faEllipsis} from "@fortawesome/free-solid-svg-icons";
 import {Room} from "../../../../models/room";
 import {EDIT, ROOMS} from "../../../../consts";
 import {Router} from "@angular/router";
+import {RoomsService} from "../../../../services/rooms.service";
 
 @Component({
   selector: 'app-room-item',
@@ -12,12 +13,13 @@ import {Router} from "@angular/router";
 export class RoomItemComponent {
   dotsIcon = faEllipsis
   roomIcon = faDiceSix
-  @Input() room: Room = { id: 0, title: ''}
+  @Input() room: Room = { id: '0', title: ''}
   menuShow: boolean = false
-  roomsUrl = ROOMS
+  @Output() deleteRoom = new EventEmitter()
 
   constructor(private eRef: ElementRef,
-              private router: Router) { }
+              private router: Router,
+              private roomService: RoomsService) { }
 
   @HostListener('document:click', ['$event'])
   clickOut(event: any) {
@@ -39,6 +41,14 @@ export class RoomItemComponent {
   }
 
   onDelete() {
-    console.log("DELETE")
+    this.roomService.deleteRoom(this.room.id)
+      .subscribe({
+        next: () => {
+          this.deleteRoom.emit()
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
   }
 }

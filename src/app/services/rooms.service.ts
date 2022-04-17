@@ -26,4 +26,8 @@ export class RoomsService {
   updateRoom(room: Room) {
     return this.http.post<Room>(environment.apiUrl + this.url + '/' + room.id, room)
   }
+
+  deleteRoom(id: string) {
+    return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
 }

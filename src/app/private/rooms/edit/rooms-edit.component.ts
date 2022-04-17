@@ -3,6 +3,7 @@ import {Room} from "../../../models/room";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RoomsService} from "../../../services/rooms.service";
 import {ROOMS} from "../../../consts";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-rooms-edit',
@@ -10,7 +11,9 @@ import {ROOMS} from "../../../consts";
   styleUrls: ['../../private.component.scss']
 })
 export class RoomsEditComponent implements OnInit {
-  room: Room = { id: 0, title: '' }
+  room: Room = { id: '0', title: '' }
+  spinnerIcon = faSpinner
+  spinnerShow = true
 
   constructor(private route: ActivatedRoute,
               private roomService: RoomsService,
@@ -22,6 +25,7 @@ export class RoomsEditComponent implements OnInit {
       this.roomService.getRoom(roomId).subscribe({
         next: (data) => {
           this.room = data
+          this.spinnerShow = false
         }
       })
     }

@@ -20,6 +20,19 @@ export class RoomsIndexComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.getData()
+  }
+
+  newRoom() {
+    this.router.navigate([ROOMS, NEW])
+  }
+
+  onDelete() {
+    this.spinnerShow = true
+    this.getData()
+  }
+
+  getData() {
     this.roomService.getRooms()
       .subscribe({
         next: (data) => {
@@ -30,10 +43,6 @@ export class RoomsIndexComponent implements OnInit {
           console.log(error)
         }
       })
-  }
-
-  newRoom() {
-    this.router.navigate([ROOMS, NEW])
   }
 
 }
