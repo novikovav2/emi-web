@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from "@angular/core";
 import {Room} from "../../../models/room";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -7,16 +7,20 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   templateUrl: './rooms-form.component.html',
   styleUrls: ['../../private.component.scss']
 })
-export class RoomsFormComponent {
+export class RoomsFormComponent implements OnChanges {
   @Input() room: Room = { id: 0, title: ''}
   @Output() submitEvent = new EventEmitter<Room>()
   @Output() resetEvent = new EventEmitter()
 
   form = new FormGroup({
-    title: new FormControl(this.room.title, [
+    title: new FormControl('', [
       Validators.required
     ])
   })
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.form.controls['title'].setValue(changes['room'].currentValue.title)
+  }
 
   onSubmit() {
     const room: Room = {

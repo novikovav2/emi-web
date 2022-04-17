@@ -1,7 +1,7 @@
 import {Component, Input, HostListener, ElementRef} from "@angular/core";
 import {faDiceSix, faEllipsis} from "@fortawesome/free-solid-svg-icons";
 import {Room} from "../../../../models/room";
-import {ROOMS} from "../../../../consts";
+import {EDIT, ROOMS} from "../../../../consts";
 import {Router} from "@angular/router";
 
 @Component({
@@ -35,7 +35,7 @@ export class RoomItemComponent {
   }
 
   onEdit() {
-    console.log("EDIT")
+    this.router.navigate([ROOMS, EDIT, this.room.id])
   }
 
   onDelete() {

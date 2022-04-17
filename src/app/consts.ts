@@ -10,4 +10,5 @@ export const ROOMS = 'rooms'
 export const RACKS = 'racks'
 
 export const NEW = 'new'
+export const EDIT = 'edit'
 

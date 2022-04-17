@@ -13,6 +13,7 @@ import {RoomsComponent} from "./rooms/rooms.component";
 import {RoomsNewComponent} from "./rooms/new/rooms-new.component";
 import {RoomsFormComponent} from "./rooms/form/rooms-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     RoomsComponent,
     RoomItemComponent,
     RoomsNewComponent,
-    RoomsFormComponent
+    RoomsFormComponent,
+    RoomsEditComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     RoomsComponent,
     RoomItemComponent,
     RoomsNewComponent,
-    RoomsFormComponent
+    RoomsFormComponent,
+    RoomsEditComponent
   ],
   providers: [
     RoomsService

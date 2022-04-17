@@ -18,4 +18,12 @@ export class RoomsService {
   addRoom(room: Room) {
     return this.http.post<Room>(environment.apiUrl + this.url, room)
   }
+
+  getRoom(id: string) {
+    return this.http.get<Room>(environment.apiUrl + this.url + '/' + id)
+  }
+
+  updateRoom(room: Room) {
+    return this.http.post<Room>(environment.apiUrl + this.url + '/' + room.id, room)
+  }
 }

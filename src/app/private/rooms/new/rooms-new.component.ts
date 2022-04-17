@@ -27,6 +27,6 @@ export class RoomsNewComponent {
   }
 
   onReset() {
-    console.log("RESET")
+    this.router.navigate([ROOMS])
   }
 }
