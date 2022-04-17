@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {PublicComponent} from "./public/public.component";
 import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
-import {AUTH_LOGIN_PAGE, AUTH_PAGE, LOGIN_PAGE, PRIVATE_PAGE, RACKS, ROOMS} from "./consts";
+import {AUTH_LOGIN_PAGE, AUTH_PAGE, LOGIN_PAGE, NEW, PRIVATE_PAGE, RACKS, ROOMS} from "./consts";
 import {AuthGuard} from "./services/auth.guard";
 import {RoomsIndexComponent} from "./private/rooms/index/rooms-index.component";
 import {RacksComponent} from "./private/racks/racks.component";
+import {RoomsNewComponent} from "./private/rooms/new/rooms-new.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -23,7 +24,8 @@ const routes: Routes = [
     children: [
       { path: ROOMS,
         children: [
-          { path: '', component: RoomsIndexComponent}
+          { path: '', component: RoomsIndexComponent },
+          { path: NEW, component: RoomsNewComponent }
         ]
       },
       { path: RACKS, component: RacksComponent }

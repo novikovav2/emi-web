@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (reset)="onReset()" class="form">
+  <div class="form-control">
+    <label for="title" class="form-label">Название</label>
+    <div class="form-value">
+      <input id="title" class="form-input" formControlName="title" />
+      <div class="form-warning">
+        <p *ngIf="form.controls['title'].invalid && form.controls['title'].touched"
+           class="form-warning_text">
+          Название помещения не может быть пустым
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="button form-submit" [disabled]="!form.valid" >
+      Сохранить
+    </button>
+    <button type="reset" class="button form-reset" >
+      Отмена
+    </button>
+  </div>
+
+</form>

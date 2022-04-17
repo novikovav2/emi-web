@@ -14,4 +14,8 @@ export class RoomsService {
     return this.http.get<Room[]>(environment.apiUrl + this.url)
       .pipe(retry(2))
   }
+
+  addRoom(room: Room) {
+    return this.http.post<Room>(environment.apiUrl + this.url, room)
+  }
 }

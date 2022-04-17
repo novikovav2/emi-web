@@ -1,7 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {RoomsService} from "../../../services/rooms.service";
 import {Room} from "../../../models/room";
-import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {faCirclePlus, faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {Router} from "@angular/router";
+import {NEW, ROOMS} from "../../../consts";
 
 @Component({
   selector: 'app-rooms-index',
@@ -12,8 +14,10 @@ export class RoomsIndexComponent implements OnInit {
   rooms: Room[] = []
   spinnerShow = true
   spinnerIcon = faSpinner
+  addIcon = faCirclePlus
 
-  constructor(private roomService: RoomsService) { }
+  constructor(private roomService: RoomsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.roomService.getRooms()
@@ -26,6 +30,10 @@ export class RoomsIndexComponent implements OnInit {
           console.log(error)
         }
       })
+  }
+
+  newRoom() {
+    this.router.navigate([ROOMS, NEW])
   }
 
 }

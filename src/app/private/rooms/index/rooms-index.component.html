@@ -10,6 +10,11 @@
         <h3 class="card-title">
           Созданные помещения
         </h3>
+        <div class="card-actions">
+          <a (click)="newRoom()">
+            <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+          </a>
+        </div>
       </div>
       <div class="card-body">
         <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>

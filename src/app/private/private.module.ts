@@ -10,6 +10,9 @@ import {FooterComponent} from "./footer/footer.component";
 import {RoomsService} from "../services/rooms.service";
 import {RoomItemComponent} from "./rooms/index/room/room-item.component";
 import {RoomsComponent} from "./rooms/rooms.component";
+import {RoomsNewComponent} from "./rooms/new/rooms-new.component";
+import {RoomsFormComponent} from "./rooms/form/rooms-form.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import {RoomsComponent} from "./rooms/rooms.component";
     RacksComponent,
     FooterComponent,
     RoomsComponent,
-    RoomItemComponent
+    RoomItemComponent,
+    RoomsNewComponent,
+    RoomsFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [
     PrivateComponent,
@@ -33,7 +39,9 @@ import {RoomsComponent} from "./rooms/rooms.component";
     RacksComponent,
     FooterComponent,
     RoomsComponent,
-    RoomItemComponent
+    RoomItemComponent,
+    RoomsNewComponent,
+    RoomsFormComponent
   ],
   providers: [
     RoomsService

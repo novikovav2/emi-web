@@ -61,6 +61,10 @@
     color: var(--brown6);
   }
 
+  &-actions {
+
+  }
+
   &-body {
     display: flex;
     flex-wrap: wrap;
@@ -83,9 +87,119 @@
 .color {
   &-green {
     color: var(--brandGreen);
+
+    &:hover {
+      color: var(--brandGreen-dark);
+    }
   }
 
   &-red {
     color: var(--brandRed);
+
+    &:hover {
+      color: var(--brandRed-dark)
+    }
+  }
+}
+
+.button {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--brandGreen);
+  cursor: pointer;
+  outline: none;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-control {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-label {
+    text-align: left;
+    color: var(--textDark);
+    margin-bottom: 6px;
+    font-size: 16px;
+    flex: 0 0 200px;
+  }
+
+  &-value {
+    flex: 1 0 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  &-input {
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    border-radius: 12px;
+    color: var(--textLight);
+    padding: 10px 20px;
+
+    &:focus {
+      outline: none;
+      filter: brightness(98%);
+    }
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid var(--brandRed);
+    }
+
+    &:disabled {
+      background-color: var(--light);
+    }
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-submit {
+    width: 200px;
+    background-color: var(--brandGreen)!important;
+    color: var(--textWhite)!important;
+    border-color: var(--brandGreen);
+
+    &:hover:enabled {
+      background-color: var(--brandGreen-dark)!important;
+    }
+
+    &:disabled {
+      background-color: var(--brandGreen-light)!important;
+    }
+  }
+
+  &-reset {
+    width: 200px;
+    background-color: var(--brown3)!important;
+    color: var(--brown7)!important;
+    border-color: var(--brown3);
+
+    &:hover:enabled {
+      background-color: var(--brown4)!important;
+    }
+
+    &:disabled {
+      background-color: var(--brown2)!important;
+    }
+  }
+
+  &-warning {
+    color: var(--brandRed);
+    text-align: left;
+    margin-top: 4px;
+    min-height: 20px;
+
+    &_text {
+      font-size: 14px;
+    }
   }
 }
