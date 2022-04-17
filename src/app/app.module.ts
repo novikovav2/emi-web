@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./services/auth.service";
 import {Interceptors} from "./services/interceptors";
 import {AuthGuard} from "./services/auth.guard";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AuthGuard} from "./services/auth.guard";
     PrivateModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AuthService,

@@ -4,6 +4,7 @@ import {Room} from "../../../models/room";
 import {faCirclePlus, faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {NEW, ROOMS} from "../../../consts";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-rooms-index',
@@ -17,7 +18,8 @@ export class RoomsIndexComponent implements OnInit {
   addIcon = faCirclePlus
 
   constructor(private roomService: RoomsService,
-              private router: Router) { }
+              private router: Router,
+              private toaster: ToastrService) { }
 
   ngOnInit() {
     this.getData()
@@ -28,6 +30,7 @@ export class RoomsIndexComponent implements OnInit {
   }
 
   onDelete() {
+    this.toaster.success("Помещение удалено")
     this.spinnerShow = true
     this.getData()
   }
