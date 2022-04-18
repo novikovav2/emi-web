@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Room} from "../../../models/room";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RoomsService} from "../../../services/rooms.service";
-import {ROOMS} from "../../../consts";
+import {ROOMS, UPDATED} from "../../../consts";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {ToastrService} from "ngx-toastr";
 
@@ -40,6 +40,7 @@ export class RoomsEditComponent implements OnInit {
     this.roomService.updateRoom(room)
       .subscribe({
         next: () => {
+          this.toastr.success(UPDATED)
           this.router.navigate([ROOMS])
         },
         error: (error) => {

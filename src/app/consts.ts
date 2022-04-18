@@ -12,3 +12,5 @@ export const RACKS = 'racks'
 export const NEW = 'new'
 export const EDIT = 'edit'
 
+export const ROOM_CREATED = 'Помещение создано'
+export const UPDATED = 'Изменения сохранены'

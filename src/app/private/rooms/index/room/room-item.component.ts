@@ -35,7 +35,7 @@ export class RoomItemComponent {
   }
 
   onShow() {
-    console.log("SHOW")
+    this.router.navigate([ROOMS, this.room.id])
   }
 
   onEdit() {

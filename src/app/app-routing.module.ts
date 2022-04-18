@@ -9,6 +9,7 @@ import {RoomsIndexComponent} from "./private/rooms/index/rooms-index.component";
 import {RacksComponent} from "./private/racks/racks.component";
 import {RoomsNewComponent} from "./private/rooms/new/rooms-new.component";
 import {RoomsEditComponent} from "./private/rooms/edit/rooms-edit.component";
+import {RoomsShowComponent} from "./private/rooms/show/rooms-show.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -27,7 +28,8 @@ const routes: Routes = [
         children: [
           { path: '', component: RoomsIndexComponent },
           { path: NEW, component: RoomsNewComponent },
-          { path: EDIT + '/:id', component: RoomsEditComponent }
+          { path: EDIT + '/:id', component: RoomsEditComponent },
+          { path: ':id', component: RoomsShowComponent}
         ]
       },
       { path: RACKS, component: RacksComponent }

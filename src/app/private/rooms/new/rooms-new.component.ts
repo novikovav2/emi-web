@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {Room} from "../../../models/room";
 import {RoomsService} from "../../../services/rooms.service";
 import {Router} from "@angular/router";
-import {ROOMS} from "../../../consts";
+import {ROOM_CREATED, ROOMS} from "../../../consts";
 import {ToastrService} from "ngx-toastr";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
@@ -24,7 +24,7 @@ export class RoomsNewComponent {
     this.roomService.addRoom(room)
       .subscribe({
         next: () => {
-          this.toastr.success("Помещение создано", room.title)
+          this.toastr.success(ROOM_CREATED, room.title)
           this.router.navigate([ROOMS])
         },
         error: (error) => {

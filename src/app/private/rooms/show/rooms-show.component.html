@@ -1,0 +1,17 @@
+<div class="header">
+  <h1 class="header-h1">
+    Помещение: {{ room.title }}
+  </h1>
+</div>
+<div class="row">
+  <div class="w-100">
+    <div class="card">
+      <h3 class="card-title">
+        Содержимое помещения
+      </h3>
+      <div class="card-body">
+        <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
