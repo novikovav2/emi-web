@@ -4,6 +4,7 @@ import {Room} from "../../../../models/room";
 import {EDIT, ROOMS} from "../../../../consts";
 import {Router} from "@angular/router";
 import {RoomsService} from "../../../../services/rooms.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-room-item',
@@ -19,7 +20,8 @@ export class RoomItemComponent {
 
   constructor(private eRef: ElementRef,
               private router: Router,
-              private roomService: RoomsService) { }
+              private roomService: RoomsService,
+              private toastr: ToastrService) { }
 
   @HostListener('document:click', ['$event'])
   clickOut(event: any) {
@@ -47,7 +49,7 @@ export class RoomItemComponent {
           this.deleteRoom.emit()
         },
         error: (error) => {
-          console.log(error)
+          this.toastr.error(error)
         }
       })
   }

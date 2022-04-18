@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RoomsService} from "../../../services/rooms.service";
 import {ROOMS} from "../../../consts";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-rooms-edit',
@@ -17,7 +18,8 @@ export class RoomsEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private roomService: RoomsService,
-              private router: Router) {  }
+              private router: Router,
+              private toastr: ToastrService) {  }
 
   ngOnInit() {
     const roomId = this.route.snapshot.paramMap.get('id');
@@ -26,6 +28,9 @@ export class RoomsEditComponent implements OnInit {
         next: (data) => {
           this.room = data
           this.spinnerShow = false
+        },
+        error: (error) => {
+          this.toastr.error(error)
         }
       })
     }
@@ -38,7 +43,7 @@ export class RoomsEditComponent implements OnInit {
           this.router.navigate([ROOMS])
         },
         error: (error) => {
-          console.log(error)
+          this.toastr.error(error)
         }
       })
   }

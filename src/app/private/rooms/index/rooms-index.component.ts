@@ -43,7 +43,7 @@ export class RoomsIndexComponent implements OnInit {
           this.spinnerShow = false
         },
         error: (error) => {
-          console.log(error)
+          this.toaster.error(error, 'Попробуйте позже')
         }
       })
   }

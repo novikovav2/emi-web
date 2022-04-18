@@ -4,6 +4,7 @@ import {RoomsService} from "../../../services/rooms.service";
 import {Router} from "@angular/router";
 import {ROOMS} from "../../../consts";
 import {ToastrService} from "ngx-toastr";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-rooms-new',
@@ -11,12 +12,15 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['../../private.component.scss']
 })
 export class RoomsNewComponent {
+  spinnerIcon = faSpinner
+  spinnerShow = false
 
   constructor(private roomService: RoomsService,
               private router: Router,
               private toastr: ToastrService) {  }
 
   onSubmit(room: Room) {
+    this.spinnerShow = true
     this.roomService.addRoom(room)
       .subscribe({
         next: () => {
@@ -24,7 +28,8 @@ export class RoomsNewComponent {
           this.router.navigate([ROOMS])
         },
         error: (error) => {
-          console.log(error)
+          this.toastr.error(error, 'Попробуйте позже')
+          this.spinnerShow = false
         }
       })
   }

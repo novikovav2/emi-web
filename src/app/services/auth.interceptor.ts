@@ -41,7 +41,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private errorHandler(error: HttpErrorResponse) {
     let errorText = ''
-    if (error.status === 401) {
+    if (error.status === 0) {
+      errorText = 'Нет доступа к серверу'
+    } else if (error.status === 401) {
       errorText = 'Вы не авторизованы'
       localStorage.removeItem(TOKEN)
     } else {
