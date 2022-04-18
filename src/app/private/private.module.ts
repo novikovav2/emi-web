@@ -15,6 +15,7 @@ import {RoomsFormComponent} from "./rooms/form/rooms-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
 import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
     RoomsNewComponent,
     RoomsFormComponent,
     RoomsEditComponent,
-    RoomsShowComponent
+    RoomsShowComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
     RoomsNewComponent,
     RoomsFormComponent,
     RoomsEditComponent,
-    RoomsShowComponent
+    RoomsShowComponent,
+    HeaderComponent
   ],
   providers: [
     RoomsService

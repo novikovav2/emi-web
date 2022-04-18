@@ -23,8 +23,9 @@
   height: 100px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 
   &-h1 {
     color: var(--textDark);
@@ -68,6 +69,7 @@
   &-body {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 32px;
   }
 
   &-footer {
@@ -200,6 +202,28 @@
 
     &_text {
       font-size: 14px;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  list-style: none;
+
+  &>li {
+    font-size: 14px;
+    color: var(--brown6);
+    margin-top: 8px;
+    margin-right: 8px;
+
+    &:last-child {
+      color: var(--brown7);
+    }
+
+    &:not(:first-child) {
+      list-style-type: '-';
+      padding-left: 8px;
     }
   }
 }
