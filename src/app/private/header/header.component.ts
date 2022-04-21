@@ -1,4 +1,6 @@
 import {Component, Input} from "@angular/core";
+import {BreadcrumbService} from "../../services/breadcrumb.service";
+import {Breadcrumb} from "../../models/breadcrumb";
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,10 @@ import {Component, Input} from "@angular/core";
 })
 export class HeaderComponent {
   @Input() title: string = ''
-  breadcrumbs = ['Главная', 'Помещения', 'Новое']
+  breadcrumbs: Breadcrumb[] = [{title: '', address: ''}]
+
+  constructor(private breadcrumbService: BreadcrumbService) {
+    this.breadcrumbs = this.breadcrumbService.getItems()
+  }
 
 }

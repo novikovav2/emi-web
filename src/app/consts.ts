@@ -8,6 +8,7 @@ export const PRIVATE_PAGE = ''
 
 export const ROOMS = 'rooms'
 export const RACKS = 'racks'
+export const ROOT = ''
 
 export const NEW = 'new'
 export const EDIT = 'edit'

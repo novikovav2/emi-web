@@ -212,18 +212,29 @@
   list-style: none;
 
   &>li {
-    font-size: 14px;
-    color: var(--brown6);
     margin-top: 8px;
-    margin-right: 8px;
-
-    &:last-child {
-      color: var(--brown7);
-    }
+    margin-right: 16px;
 
     &:not(:first-child) {
       list-style-type: '-';
       padding-left: 8px;
     }
+  }
+
+  &-link {
+    font-size: 14px;
+    color: var(--brown6);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-last {
+    font-weight: bolder;
+    font-size: 14px;
+    color: var(--brown6);
+    text-decoration: none;
   }
 }

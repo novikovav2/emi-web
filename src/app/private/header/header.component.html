@@ -3,8 +3,13 @@
     {{ title }}
   </h1>
   <ul class="breadcrumb">
-    <li *ngFor="let item of breadcrumbs" >
-      {{ item }}
+    <li *ngFor="let item of breadcrumbs; let last = last" >
+      <a [routerLink]="item.address" *ngIf="!last" class="breadcrumb-link">
+        {{ item.title }}
+      </a>
+      <a *ngIf="last" class="breadcrumb-last">
+        {{ item.title }}
+      </a>
     </li>
   </ul>
 </div>

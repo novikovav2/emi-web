@@ -4,6 +4,8 @@ import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {RoomsService} from "../../../services/rooms.service";
 import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {BreadcrumbService} from "../../../services/breadcrumb.service";
+import {ROOMS} from "../../../consts";
 
 @Component({
   selector: 'app-rooms-show',
@@ -17,7 +19,13 @@ export class RoomsShowComponent implements OnInit{
 
   constructor(private roomService: RoomsService,
               private route: ActivatedRoute,
-              private toastr: ToastrService) {  }
+              private toastr: ToastrService,
+              private breadcrumbs: BreadcrumbService) {
+    this.breadcrumbs.setItems([
+      {title: 'Помещения', address: '/' + ROOMS},
+      {title: 'Детали', address: '/' + ROOMS}
+    ])
+  }
 
   ngOnInit() {
     const roomId = this.route.snapshot.paramMap.get('id')

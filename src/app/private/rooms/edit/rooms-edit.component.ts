@@ -5,6 +5,7 @@ import {RoomsService} from "../../../services/rooms.service";
 import {ROOMS, UPDATED} from "../../../consts";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {ToastrService} from "ngx-toastr";
+import {BreadcrumbService} from "../../../services/breadcrumb.service";
 
 @Component({
   selector: 'app-rooms-edit',
@@ -19,7 +20,13 @@ export class RoomsEditComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private roomService: RoomsService,
               private router: Router,
-              private toastr: ToastrService) {  }
+              private toastr: ToastrService,
+              private breadcrumbs: BreadcrumbService) {
+    this.breadcrumbs.setItems([
+      {title: 'Помещения', address: '/' + ROOMS},
+      {title: 'Изменить', address: '/' + ROOMS}
+    ])
+  }
 
   ngOnInit() {
     const roomId = this.route.snapshot.paramMap.get('id');

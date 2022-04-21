@@ -5,6 +5,7 @@ import {faCirclePlus, faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {NEW, ROOMS} from "../../../consts";
 import {ToastrService} from "ngx-toastr";
+import {BreadcrumbService} from "../../../services/breadcrumb.service";
 
 @Component({
   selector: 'app-rooms-index',
@@ -19,7 +20,12 @@ export class RoomsIndexComponent implements OnInit {
 
   constructor(private roomService: RoomsService,
               private router: Router,
-              private toaster: ToastrService) { }
+              private toaster: ToastrService,
+              private breadcrums: BreadcrumbService) {
+    this.breadcrums.setItems([
+      {title: 'Помещения', address: '/' + ROOMS}
+    ])
+  }
 
   ngOnInit() {
     this.getData()

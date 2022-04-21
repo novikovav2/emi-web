@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
 import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
 import {HeaderComponent} from "./header/header.component";
+import {BreadcrumbService} from "../services/breadcrumb.service";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {HeaderComponent} from "./header/header.component";
     HeaderComponent
   ],
   providers: [
-    RoomsService
+    RoomsService,
+    BreadcrumbService
   ]
 })
 export class PrivateModule {

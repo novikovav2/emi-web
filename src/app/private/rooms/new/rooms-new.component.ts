@@ -2,9 +2,10 @@ import {Component} from "@angular/core";
 import {Room} from "../../../models/room";
 import {RoomsService} from "../../../services/rooms.service";
 import {Router} from "@angular/router";
-import {ROOM_CREATED, ROOMS} from "../../../consts";
+import {NEW, ROOM_CREATED, ROOMS} from "../../../consts";
 import {ToastrService} from "ngx-toastr";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {BreadcrumbService} from "../../../services/breadcrumb.service";
 
 @Component({
   selector: 'app-rooms-new',
@@ -17,7 +18,13 @@ export class RoomsNewComponent {
 
   constructor(private roomService: RoomsService,
               private router: Router,
-              private toastr: ToastrService) {  }
+              private toastr: ToastrService,
+              private breadcrumbs: BreadcrumbService) {
+    this.breadcrumbs.setItems([
+      {title: 'Помещения', address: '/' + ROOMS},
+      {title: 'Новое', address: '/' + ROOMS + '/' + NEW}
+    ])
+  }
 
   onSubmit(room: Room) {
     this.spinnerShow = true
