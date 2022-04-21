@@ -17,6 +17,8 @@ import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
 import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
 import {HeaderComponent} from "./header/header.component";
 import {BreadcrumbService} from "../services/breadcrumb.service";
+import {RacksIndexComponent} from "./racks/index/racks-index.component";
+import {RacksService} from "../services/racks.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {BreadcrumbService} from "../services/breadcrumb.service";
     RoomsFormComponent,
     RoomsEditComponent,
     RoomsShowComponent,
-    HeaderComponent
+    HeaderComponent,
+    RacksIndexComponent
   ],
   imports: [
     CommonModule,
@@ -51,11 +54,13 @@ import {BreadcrumbService} from "../services/breadcrumb.service";
     RoomsFormComponent,
     RoomsEditComponent,
     RoomsShowComponent,
-    HeaderComponent
+    HeaderComponent,
+    RacksIndexComponent
   ],
   providers: [
     RoomsService,
-    BreadcrumbService
+    BreadcrumbService,
+    RacksService
   ]
 })
 export class PrivateModule {

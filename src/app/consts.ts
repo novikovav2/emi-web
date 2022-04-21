@@ -10,6 +10,9 @@ export const ROOMS = 'rooms'
 export const RACKS = 'racks'
 export const ROOT = ''
 
+export const ROOMS_URL = '/' + ROOMS
+export const RACKS_URL = '/' + RACKS
+
 export const NEW = 'new'
 export const EDIT = 'edit'
 

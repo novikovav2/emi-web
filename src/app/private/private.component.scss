@@ -51,7 +51,7 @@
 
   &-header {
     display: flex;
-    min-height: 70px;
+    min-height: 50px;
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
@@ -236,5 +236,63 @@
     font-size: 14px;
     color: var(--brown6);
     text-decoration: none;
+  }
+}
+
+.table {
+  width: 100%;
+
+  &>thead {
+    color: var(--brown5);
+    text-transform: uppercase;
+
+    &>tr {
+      height: 50px;
+
+      &>td {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &>tbody {
+    &>tr {
+      height: 50px;
+
+      &>td {
+        border-top: 1px dashed var(--brown4);
+        text-align: center;
+        color: var(--brown7);
+        font-size: 16px;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
+
+        &>a {
+          color: var(--brown7);
+          text-decoration: none;
+          font-size: 16px;
+
+          &:hover {
+            color: var(--brandGreen);
+          }
+        }
+      }
+    }
   }
 }
