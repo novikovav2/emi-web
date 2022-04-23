@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Room} from "../models/room";
 import {retry} from "rxjs";
+import {Rack} from "../models/rack";
 
 @Injectable()
 export class RoomsService {
@@ -29,5 +30,9 @@ export class RoomsService {
 
   deleteRoom(id: string) {
     return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
+
+  getRacks(id: string) {
+    return this.http.get<Rack[]>(environment.apiUrl + this.url + '/' + id + '/racks')
   }
 }

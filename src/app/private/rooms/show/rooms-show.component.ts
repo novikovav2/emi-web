@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {ROOMS} from "../../../consts";
+import {Rack} from "../../../models/rack";
 
 @Component({
   selector: 'app-rooms-show',
@@ -14,6 +15,7 @@ import {ROOMS} from "../../../consts";
 })
 export class RoomsShowComponent implements OnInit{
   room: Room = { id: '0', title: '' }
+  racks: Rack[] = []
   spinnerIcon = faSpinner
   spinnerShow = true
 
@@ -30,17 +32,36 @@ export class RoomsShowComponent implements OnInit{
   ngOnInit() {
     const roomId = this.route.snapshot.paramMap.get('id')
     if (roomId) {
-      this.roomService.getRoom(roomId)
-        .subscribe({
-          next: (data) => {
-            this.room = data
-            this.spinnerShow = false
-          },
-          error: (error) => {
-            this.toastr.error(error)
-          }
-        })
+      this.getRoomData(roomId)
+      this.getRacksData(roomId)
     }
+  }
+
+  getRoomData(id: string) {
+    this.roomService.getRoom(id)
+      .subscribe({
+        next: (data) => {
+          this.room = data
+        },
+        error: (error) => {
+          this.toastr.error(error)
+        }
+      })
+  }
+
+  getRacksData(id: string) {
+    this.roomService.getRacks(id)
+      .subscribe({
+        next: (data) => {
+          this.racks = data
+          this.spinnerShow = false
+          console.log(data)
+        },
+        error: (error) => {
+          this.toastr.error(error)
+          console.log(error)
+        }
+      })
   }
 
 }

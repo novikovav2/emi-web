@@ -78,7 +78,8 @@
 
   &-spinner {
     color: var(--brown4);
-    margin: 0 auto;
+    margin: 24px auto 0;
+    font-size: 16px;
   }
 }
 
@@ -243,7 +244,7 @@
   width: 100%;
 
   &>thead {
-    color: var(--brown5);
+    color: var(--brown7);
     text-transform: uppercase;
 
     &>tr {
@@ -273,7 +274,7 @@
         border-top: 1px dashed var(--brown4);
         text-align: center;
         color: var(--brown7);
-        font-size: 16px;
+        font-size: 18px;
 
         &:first-child {
           text-align: left;
@@ -286,7 +287,7 @@
         &>a {
           color: var(--brown7);
           text-decoration: none;
-          font-size: 16px;
+          font-size: 18px;
 
           &:hover {
             color: var(--brandGreen);
@@ -296,3 +297,83 @@
     }
   }
 }
+
+.rectangle {
+  border: 1px dashed var(--brown4);
+  border-radius: 12px;
+  background-color: transparent;
+  min-width: 350px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  margin-right: 32px;
+  margin-bottom: 32px;
+  position: relative;
+
+  &-left {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &-right {
+    margin-left: 24px;
+  }
+
+  &-icon {
+    margin-right: 12px;
+  }
+
+  &-btn {
+    background-color: var(--brown3);
+    color: var(--brown5);
+    padding: 1px 6px;
+    border-radius: 6px;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--brandGreen-light);
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    padding: 16px 16px;
+    border-radius: 12px;
+    right: 22px;
+    top: 60px;
+    min-width: 185px;
+    box-shadow: 0 0 50px 0 var(--brown4);
+
+    &>ul {
+      list-style: none;
+    }
+
+    &>ul>li {
+      margin: 16px 0;
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--brandGreen-light);
+        color: var(--brandGreen-dark);
+      }
+
+      &>a {
+        font-weight: lighter;
+        font-size: 16px;
+        color: var(--brown7);
+        text-decoration: none;
+      }
+    }
+  }
+}
+

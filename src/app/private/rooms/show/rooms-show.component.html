@@ -2,11 +2,17 @@
 <div class="row">
   <div class="w-100">
     <div class="card">
-      <h3 class="card-title">
-        Содержимое помещения
-      </h3>
+      <div class="card-header">
+        <h3 class="card-title">
+          Стойки
+        </h3>
+      </div>
       <div class="card-body">
         <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+        <app-room-rack *ngFor="let rack of racks" [rack]="rack"></app-room-rack>
+        <p *ngIf="!spinnerShow && racks.length === 0" class="card-spinner">
+          В помещении пока нет стоек
+        </p>
       </div>
     </div>
   </div>
