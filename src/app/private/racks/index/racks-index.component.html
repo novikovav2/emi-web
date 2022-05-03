@@ -6,6 +6,11 @@
         <h3 class="card-title">
           Созданные стойки
         </h3>
+        <div class="card-actions">
+          <a (click)="newRack()">
+            <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+          </a>
+        </div>
       </div>
       <div class="card-body">
         <table class="table">
@@ -18,7 +23,9 @@
           <tbody>
             <tr *ngFor="let rack of racks">
               <td>
-                {{ rack.name }}
+                <a [routerLink]="[racks_url, rack.id]">
+                  {{ rack.name }}
+                </a>
               </td>
               <td>
                 <a [routerLink]="[rooms_url, rack.room.id]" >

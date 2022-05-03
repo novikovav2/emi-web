@@ -1,13 +1,13 @@
 import {Room} from "./room";
 
 export interface Rack {
-  id: number,
+  id: string,
   name: string,
   room: Room
 }
 
 export const RACK_DEFAULT: Rack = {
-  id: 0,
+  id: '0',
   name: '',
   room: {
     id: '',

@@ -20,6 +20,7 @@ import {BreadcrumbService} from "../services/breadcrumb.service";
 import {RacksIndexComponent} from "./racks/index/racks-index.component";
 import {RacksService} from "../services/racks.service";
 import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component";
+import {RackShowComponent} from "./racks/show/rack-show.component"
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component"
     RoomsShowComponent,
     HeaderComponent,
     RacksIndexComponent,
-    RoomRackItemComponent
+    RoomRackItemComponent,
+    RackShowComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component"
     RoomsShowComponent,
     HeaderComponent,
     RacksIndexComponent,
-    RoomRackItemComponent
+    RoomRackItemComponent,
+    RackShowComponent
   ],
   providers: [
     RoomsService,

@@ -5,7 +5,7 @@ import {RoomsService} from "../../../services/rooms.service";
 import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
-import {ROOMS} from "../../../consts";
+import {ROOMS_URL} from "../../../consts";
 import {Rack} from "../../../models/rack";
 
 @Component({
@@ -24,8 +24,8 @@ export class RoomsShowComponent implements OnInit{
               private toastr: ToastrService,
               private breadcrumbs: BreadcrumbService) {
     this.breadcrumbs.setItems([
-      {title: 'Помещения', address: '/' + ROOMS},
-      {title: 'Детали', address: '/' + ROOMS}
+      {title: 'Помещения', address: ROOMS_URL},
+      {title: 'Детали', address: ''}
     ])
   }
 
@@ -55,7 +55,6 @@ export class RoomsShowComponent implements OnInit{
         next: (data) => {
           this.racks = data
           this.spinnerShow = false
-          console.log(data)
         },
         error: (error) => {
           this.toastr.error(error)

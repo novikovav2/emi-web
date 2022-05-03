@@ -8,15 +8,13 @@ import {
 } from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {catchError, Observable, tap, throwError} from "rxjs";
-import {ROOT, TOKEN} from "../consts";
-import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
+import {TOKEN} from "../consts";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router,
-              private toastr: ToastrService) {  }
+  // constructor(private router: Router,
+  //             private toastr: ToastrService) {  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem(TOKEN)
@@ -51,9 +49,9 @@ export class AuthInterceptor implements HttpInterceptor {
       errorText = 'Нет доступа к серверу'
     } else if (error.status === 401) {
       errorText = 'Вы не авторизованы'
-      localStorage.removeItem(TOKEN)
-      this.toastr.error(errorText)
-      this.router.navigate([ROOT])
+      // localStorage.removeItem(TOKEN)
+      // this.toastr.error(errorText)
+      // this.router.navigate([ROOT])
     } else {
       errorText = 'Ууууупс... Что-то пошло не так'
     }

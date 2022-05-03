@@ -1,6 +1,8 @@
 import {Component, ElementRef, HostListener, Input} from "@angular/core";
 import {Rack, RACK_DEFAULT} from "../../../../models/rack";
 import {faEllipsis, faMicrochip} from "@fortawesome/free-solid-svg-icons";
+import {Router} from "@angular/router";
+import {RACKS} from "../../../../consts";
 
 @Component({
   selector: 'app-room-rack',
@@ -13,7 +15,8 @@ export class RoomRackItemComponent {
   dotsIcon = faEllipsis
   menuShow = false
 
-  constructor(private eRef: ElementRef) {
+  constructor(private eRef: ElementRef,
+              private router: Router) {
   }
 
   @HostListener('document:click', ['$event'])
@@ -28,7 +31,7 @@ export class RoomRackItemComponent {
   }
 
   onShow() {
-
+    this.router.navigate([RACKS, this.rack.id])
   }
 
   onEdit() {

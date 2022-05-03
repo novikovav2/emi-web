@@ -10,6 +10,7 @@ import {RoomsNewComponent} from "./private/rooms/new/rooms-new.component";
 import {RoomsEditComponent} from "./private/rooms/edit/rooms-edit.component";
 import {RoomsShowComponent} from "./private/rooms/show/rooms-show.component";
 import {RacksIndexComponent} from "./private/racks/index/racks-index.component";
+import {RackShowComponent} from "./private/racks/show/rack-show.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -34,7 +35,8 @@ const routes: Routes = [
       },
       { path: RACKS,
         children: [
-          { path: ROOT, component: RacksIndexComponent }
+          { path: ROOT, component: RacksIndexComponent },
+          { path: ':id', component: RackShowComponent}
         ]
       }
     ]

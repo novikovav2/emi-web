@@ -15,4 +15,8 @@ export class RacksService {
     return this.http.get<Rack[]>(environment.apiUrl + this.url)
       .pipe(retry(2))
   }
+
+  getOne(id: string) {
+    return this.http.get<Rack>(environment.apiUrl + this.url + '/' + id)
+  }
 }
