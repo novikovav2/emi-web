@@ -1,10 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
-import {RACKS, RACKS_URL, ROOMS_URL} from "../../../consts";
+import {NEW, RACKS, RACKS_URL, ROOMS_URL} from "../../../consts";
 import {RacksService} from "../../../services/racks.service";
 import {ToastrService} from "ngx-toastr";
 import {Rack} from "../../../models/rack";
-import {Router} from "@angular/router";
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -16,12 +15,12 @@ export class RacksIndexComponent implements OnInit {
   racks: Rack[] = []
   rooms_url = ROOMS_URL
   racks_url = RACKS_URL
+  new_url = NEW
   addIcon = faCirclePlus
 
   constructor(private breadcrumbs: BreadcrumbService,
               private racksService: RacksService,
-              private toastr: ToastrService,
-              private router: Router) {
+              private toastr: ToastrService) {
     this.breadcrumbs.setItems([
       { title: 'Стойки', address: '/' + RACKS}
     ])

@@ -1,0 +1,18 @@
+<app-header title="Новая стойка"></app-header>
+<div class="row">
+  <div class="w-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          Параметры новой стойки
+        </h3>
+      </div>
+      <div class="card-body">
+        <app-racks-form class="w-100"
+                        (submitEvent)="onSubmit($event)"
+                        (resetEvent)="onReset()">
+        </app-racks-form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label for="email" class="form-label">Электронная почта</label>
-      <input id="email" class="form-input" formControlName="email" />
+      <input id="email" class="form-input" formControlName="email" autofocus />
 
       <div class="form-warning">
         <p *ngIf="form.controls['email'].invalid && form.controls['email'].touched"

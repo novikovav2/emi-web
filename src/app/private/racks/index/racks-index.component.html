@@ -7,7 +7,7 @@
           Созданные стойки
         </h3>
         <div class="card-actions">
-          <a (click)="newRack()">
+          <a [routerLink]="[racks_url, new_url]" >
             <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
           </a>
         </div>

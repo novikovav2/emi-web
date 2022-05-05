@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from "@angular/core";
-import {Room} from "../../../models/room";
+import {Room, ROOM_DEFAULT} from "../../../models/room";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -8,7 +8,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['../../private.component.scss']
 })
 export class RoomsFormComponent implements OnChanges {
-  @Input() room: Room = { id: '0', title: ''}
+  @Input() room: Room = ROOM_DEFAULT
   @Output() submitEvent = new EventEmitter<Room>()
   @Output() resetEvent = new EventEmitter()
 

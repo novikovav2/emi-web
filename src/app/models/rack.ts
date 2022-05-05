@@ -6,6 +6,11 @@ export interface Rack {
   room: Room
 }
 
+export interface RackNew {
+  name: string,
+  roomId: string
+}
+
 export const RACK_DEFAULT: Rack = {
   id: '0',
   name: '',

@@ -21,6 +21,8 @@ import {RacksIndexComponent} from "./racks/index/racks-index.component";
 import {RacksService} from "../services/racks.service";
 import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component";
 import {RackShowComponent} from "./racks/show/rack-show.component"
+import {RacksNewComponent} from "./racks/new/racks-new.component";
+import {RacksFormComponent} from "./racks/form/racks-form.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {RackShowComponent} from "./racks/show/rack-show.component"
     HeaderComponent,
     RacksIndexComponent,
     RoomRackItemComponent,
-    RackShowComponent
+    RackShowComponent,
+    RacksNewComponent,
+    RacksFormComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,9 @@ import {RackShowComponent} from "./racks/show/rack-show.component"
     HeaderComponent,
     RacksIndexComponent,
     RoomRackItemComponent,
-    RackShowComponent
+    RackShowComponent,
+    RacksNewComponent,
+    RacksFormComponent
   ],
   providers: [
     RoomsService,
