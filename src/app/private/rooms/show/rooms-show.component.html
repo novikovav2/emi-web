@@ -1,4 +1,27 @@
-<app-header [title]="room.title"></app-header>
+<app-header title="Детали помещения"></app-header>
+<div class="row">
+  <div class="w-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          {{ room.title }}
+        </h3>
+        <div class="card-actions" >
+          <a [routerLink]="['/rooms', 'edit', room.id]" class="link">
+            Изменить
+          </a>
+          <a class="link color-red" (click)="onDelete()">
+            Удалить
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="w-100">
     <div class="card">

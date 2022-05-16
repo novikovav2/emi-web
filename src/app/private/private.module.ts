@@ -23,6 +23,7 @@ import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component"
 import {RackShowComponent} from "./racks/show/rack-show.component"
 import {RacksNewComponent} from "./racks/new/racks-new.component";
 import {RacksFormComponent} from "./racks/form/racks-form.component";
+import {RacksEditComponent} from "./racks/edit/racks-edit.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {RacksFormComponent} from "./racks/form/racks-form.component";
     RoomRackItemComponent,
     RackShowComponent,
     RacksNewComponent,
-    RacksFormComponent
+    RacksFormComponent,
+    RacksEditComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +69,8 @@ import {RacksFormComponent} from "./racks/form/racks-form.component";
     RoomRackItemComponent,
     RackShowComponent,
     RacksNewComponent,
-    RacksFormComponent
+    RacksFormComponent,
+    RacksEditComponent
   ],
   providers: [
     RoomsService,

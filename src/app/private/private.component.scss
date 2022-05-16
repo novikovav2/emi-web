@@ -101,7 +101,7 @@
   }
 
   &-red {
-    color: var(--brandRed);
+    color: var(--brandRed)!important;
 
     &:hover {
       color: var(--brandRed-dark)
@@ -381,3 +381,17 @@
   }
 }
 
+.link {
+  text-decoration: none;
+  padding: 6px 8px;
+  margin-left: 16px;
+  font-size: 14px;
+  color: var(--brown5);
+  background: var(--brown3);
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--brown4);
+  }
+}
