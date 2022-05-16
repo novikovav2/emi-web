@@ -4,7 +4,7 @@ import {RacksService} from "../../../services/racks.service";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {ToastrService} from "ngx-toastr";
 import {RACKS_URL} from "../../../consts";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-rack-show',
@@ -17,6 +17,7 @@ export class RackShowComponent implements OnInit{
   constructor(private rackService: RacksService,
               private breadcrumbs: BreadcrumbService,
               private toastr: ToastrService,
+              private router: Router,
               private route: ActivatedRoute) {
     this.breadcrumbs.setItems([
       {title: 'Стойки', address: RACKS_URL},
@@ -40,6 +41,19 @@ export class RackShowComponent implements OnInit{
         error: (error) => {
           this.toastr.error(error)
           console.log(error)
+        }
+      })
+  }
+
+  onDelete() {
+    this.rackService.delete(this.rack.id)
+      .subscribe({
+        next: () => {
+          this.toastr.success("Стойка удалена")
+          this.router.navigate([RACKS_URL])
+        },
+        error: (error) => {
+          this.toastr.error(error)
         }
       })
   }

@@ -23,4 +23,8 @@ export class RacksService {
   add(rack: RackNew) {
     return this.http.post<Rack>(environment.apiUrl + this.url, rack)
   }
+
+  delete(id: string) {
+    return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
 }
