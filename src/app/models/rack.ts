@@ -11,6 +11,11 @@ export interface RackNew {
   roomId: string
 }
 
+export interface RackUpdated {
+  id: string,
+  name: string
+}
+
 export const RACK_DEFAULT: Rack = {
   id: '0',
   name: '',

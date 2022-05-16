@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from "@angular/core";
 import {Rack, RACK_DEFAULT, RackNew} from "../../../models/rack";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RoomsService} from "../../../services/rooms.service";
@@ -10,11 +10,12 @@ import {ToastrService} from "ngx-toastr";
   templateUrl: './racks-form.component.html',
   styleUrls: ['../../private.component.scss']
 })
-export class RacksFormComponent implements OnInit {
+export class RacksFormComponent implements OnInit, OnChanges {
   @Input() rack: Rack = RACK_DEFAULT
   @Output() submitEvent = new EventEmitter<RackNew>()
   @Output() resetEvent = new EventEmitter()
   rooms: Room[] = [ROOM_DEFAULT]
+  @Input() isDisabled: boolean = false
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -35,6 +36,11 @@ export class RacksFormComponent implements OnInit {
           this.toastr.error(error)
         }
       })
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.form.controls['name'].setValue(changes['rack'].currentValue.name)
+    this.form.controls['room_id'].setValue(changes['rack'].currentValue.room.id)
   }
 
   onSubmit() {

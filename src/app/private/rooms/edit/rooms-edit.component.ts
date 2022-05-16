@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Room} from "../../../models/room";
+import {Room, ROOM_DEFAULT} from "../../../models/room";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RoomsService} from "../../../services/rooms.service";
 import {ROOMS, UPDATED} from "../../../consts";
@@ -13,7 +13,7 @@ import {BreadcrumbService} from "../../../services/breadcrumb.service";
   styleUrls: ['../../private.component.scss']
 })
 export class RoomsEditComponent implements OnInit {
-  room: Room = { id: '0', title: '' }
+  room: Room = ROOM_DEFAULT
   spinnerIcon = faSpinner
   spinnerShow = true
 

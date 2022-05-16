@@ -39,8 +39,8 @@ const routes: Routes = [
         children: [
           { path: ROOT, component: RacksIndexComponent },
           { path: NEW, component: RacksNewComponent },
+          { path: EDIT + '/:id', component: RacksEditComponent },
           { path: ':id', component: RackShowComponent },
-          { path: EDIT + ':id', component: RacksEditComponent }
         ]
       }
     ]

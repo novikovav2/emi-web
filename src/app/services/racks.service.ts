@@ -3,7 +3,7 @@ import {RACKS_URL} from "../consts";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
-import {Rack, RackNew} from "../models/rack"
+import {Rack, RackNew, RackUpdated} from "../models/rack"
 
 @Injectable()
 export class RacksService {
@@ -26,5 +26,9 @@ export class RacksService {
 
   delete(id: string) {
     return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
+
+  update(rack: RackUpdated) {
+    return this.http.post<Rack>(environment.apiUrl + this.url + '/' + rack.id, rack)
   }
 }

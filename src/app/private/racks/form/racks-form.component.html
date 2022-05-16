@@ -2,9 +2,11 @@
   <div class="form-control">
     <label class="form-label">Помещение</label>
     <div class="form-value">
-      <select class="form-input" formControlName="room_id">
+      <select class="form-input" formControlName="room_id" [attr.disabled]="isDisabled ? '' : null" >
         <option [ngValue]="null" >Выберите помещение</option>
-        <option *ngFor="let room of rooms" [ngValue]="room.id">{{ room.title }}</option>
+        <option *ngFor="let room of rooms" [ngValue]="room.id" [selected]="room === rack.room">
+          {{ room.title }}
+        </option>
       </select>
     </div>
   </div>
