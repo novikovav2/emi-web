@@ -25,6 +25,7 @@ import {RackShowComponent} from "./private/racks/show/rack-show.component";
 import {RacksNewComponent} from "./private/racks/new/racks-new.component";
 import {RacksEditComponent} from "./private/racks/edit/racks-edit.component";
 import {PatchpanelsIndexComponent} from "./private/patchpanels/index/patchpanels-index.component";
+import {PatchpanelsNewComponent} from "./private/patchpanels/new/patchpanels-new.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -58,7 +59,8 @@ const routes: Routes = [
       {
         path: PATCHPANELS,
         children: [
-          { path: ROOT, component: PatchpanelsIndexComponent }
+          { path: ROOT, component: PatchpanelsIndexComponent },
+          { path: NEW, component: PatchpanelsNewComponent }
         ]
       }
     ]

@@ -4,7 +4,7 @@ import {faCirclePlus, faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {PatchpanelsService} from "../../../services/patchpanels.service";
 import {ToastrService} from "ngx-toastr";
-import {PATCHPANELS_URL} from "../../../consts";
+import {NEW, PATCHPANELS_URL} from "../../../consts";
 
 @Component({
   selector: 'app-patchpanels-index',
@@ -16,6 +16,7 @@ export class PatchpanelsIndexComponent implements OnInit{
   addIcon = faCirclePlus
   spinnerShow = true
   spinnerIcon = faSpinner
+  new_url = NEW
 
   constructor(private breadcrumbs: BreadcrumbService,
               private patchpanelService: PatchpanelsService,

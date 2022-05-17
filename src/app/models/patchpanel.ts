@@ -8,6 +8,12 @@ export interface Patchpanel {
   rack: Partial<Rack>
 }
 
+export interface PatchpanelForm {
+  name: string,
+  rackId: string,
+  type: material
+}
+
 export const PATCHPANEL_DEFAULT: Patchpanel = {
   id: '',
   name: '',
