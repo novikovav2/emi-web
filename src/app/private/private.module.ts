@@ -15,7 +15,6 @@ import {RoomsFormComponent} from "./rooms/form/rooms-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
 import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
-import {HeaderComponent} from "./header/header.component";
 import {BreadcrumbService} from "../services/breadcrumb.service";
 import {RacksIndexComponent} from "./racks/index/racks-index.component";
 import {RacksService} from "../services/racks.service";
@@ -24,6 +23,9 @@ import {RackShowComponent} from "./racks/show/rack-show.component"
 import {RacksNewComponent} from "./racks/new/racks-new.component";
 import {RacksFormComponent} from "./racks/form/racks-form.component";
 import {RacksEditComponent} from "./racks/edit/racks-edit.component";
+import {PatchpanelsModule} from "./patchpanels/patchpanels.module";
+import {PatchpanelsService} from "../services/patchpanels.service";
+import {SharedModule} from "./shared.module";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,6 @@ import {RacksEditComponent} from "./racks/edit/racks-edit.component";
     RoomsFormComponent,
     RoomsEditComponent,
     RoomsShowComponent,
-    HeaderComponent,
     RacksIndexComponent,
     RoomRackItemComponent,
     RackShowComponent,
@@ -50,7 +51,9 @@ import {RacksEditComponent} from "./racks/edit/racks-edit.component";
     CommonModule,
     RouterModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PatchpanelsModule,
+    SharedModule
   ],
   exports: [
     PrivateComponent,
@@ -64,7 +67,6 @@ import {RacksEditComponent} from "./racks/edit/racks-edit.component";
     RoomsFormComponent,
     RoomsEditComponent,
     RoomsShowComponent,
-    HeaderComponent,
     RacksIndexComponent,
     RoomRackItemComponent,
     RackShowComponent,
@@ -75,7 +77,8 @@ import {RacksEditComponent} from "./racks/edit/racks-edit.component";
   providers: [
     RoomsService,
     BreadcrumbService,
-    RacksService
+    RacksService,
+    PatchpanelsService
   ]
 })
 export class PrivateModule {

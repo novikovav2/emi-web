@@ -3,7 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import {PublicComponent} from "./public/public.component";
 import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
-import {AUTH_LOGIN_PAGE, AUTH_PAGE, EDIT, LOGIN_PAGE, NEW, PRIVATE_PAGE, RACKS, ROOMS, ROOT} from "./consts";
+import {
+  AUTH_LOGIN_PAGE,
+  AUTH_PAGE,
+  EDIT,
+  LOGIN_PAGE,
+  NEW,
+  PATCHPANELS,
+  PRIVATE_PAGE,
+  RACKS,
+  ROOMS,
+  ROOT
+} from "./consts";
 import {AuthGuard} from "./services/auth.guard";
 import {RoomsIndexComponent} from "./private/rooms/index/rooms-index.component";
 import {RoomsNewComponent} from "./private/rooms/new/rooms-new.component";
@@ -13,6 +24,7 @@ import {RacksIndexComponent} from "./private/racks/index/racks-index.component";
 import {RackShowComponent} from "./private/racks/show/rack-show.component";
 import {RacksNewComponent} from "./private/racks/new/racks-new.component";
 import {RacksEditComponent} from "./private/racks/edit/racks-edit.component";
+import {PatchpanelsIndexComponent} from "./private/patchpanels/index/patchpanels-index.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -41,6 +53,12 @@ const routes: Routes = [
           { path: NEW, component: RacksNewComponent },
           { path: EDIT + '/:id', component: RacksEditComponent },
           { path: ':id', component: RackShowComponent },
+        ]
+      },
+      {
+        path: PATCHPANELS,
+        children: [
+          { path: ROOT, component: PatchpanelsIndexComponent }
         ]
       }
     ]
