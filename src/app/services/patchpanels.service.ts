@@ -20,4 +20,7 @@ export class PatchpanelsService {
     return this.http.post<Patchpanel>(environment.apiUrl + this.url, patchpanel)
   }
 
+  getOne(id: string) {
+    return this.http.get<Patchpanel>(environment.apiUrl + this.url + '/' + id)
+  }
 }

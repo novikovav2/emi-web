@@ -25,13 +25,17 @@
           <tbody>
             <tr *ngFor="let item of patchpanels">
               <td>
-                {{ item.name }}
+                <a [routerLink]="[item.id]">
+                  {{ item.name }}
+                </a>
               </td>
               <td>
-                {{ item.rack.name }}
+                <a [routerLink]="[racks_url, item.rack.id]">
+                  {{ item.rack.name }}
+                </a>
               </td>
               <td>
-                {{ item.type }}
+                {{ item.type | humanView }}
               </td>
             </tr>
           </tbody>

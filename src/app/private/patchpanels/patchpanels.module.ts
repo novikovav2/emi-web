@@ -8,13 +8,15 @@ import {PatchpanelsIndexComponent} from "./index/patchpanels-index.component";
 import {SharedModule} from "../shared.module";
 import {PatchpanelsNewComponent} from "./new/patchpanels-new.component";
 import {PatchpanelsFormComponent} from "./form/patchpanels-form.component";
+import {PatchpanelsShowComponent} from "./show/patchpanels-show.component";
 
 @NgModule({
   declarations: [
     PatchpanelsComponent,
     PatchpanelsIndexComponent,
     PatchpanelsNewComponent,
-    PatchpanelsFormComponent
+    PatchpanelsFormComponent,
+    PatchpanelsShowComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import {PatchpanelsFormComponent} from "./form/patchpanels-form.component";
     PatchpanelsComponent,
     PatchpanelsIndexComponent,
     PatchpanelsNewComponent,
-    PatchpanelsFormComponent
+    PatchpanelsFormComponent,
+    PatchpanelsShowComponent
   ]
 })
 export class PatchpanelsModule { }

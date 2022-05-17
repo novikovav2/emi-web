@@ -1,0 +1,20 @@
+<app-header title="Детали патчпанели"></app-header>
+<div class="row">
+  <div class="w-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          {{ patchpanel.name }}
+        </h3>
+        <div class="card-actions">
+          <a [routerLink]="['/patchpanels']" class="link">
+            Изменить
+          </a>
+          <a class="link" (click)="onDelete()">
+            Удалить
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
