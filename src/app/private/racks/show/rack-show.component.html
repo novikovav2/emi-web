@@ -35,6 +35,33 @@
           Патчпанели
         </h3>
       </div>
+      <div class="card-body">
+        <fa-icon [icon]="patchpanelSpinnerIcon" size="2x" [pulse]="true" *ngIf="patchpanelSpinnerShow"
+          class="card-spinner"></fa-icon>
+        <p class="card-spinner" *ngIf="!patchpanelSpinnerShow && patchpanels.length === 0">
+          Пусто
+        </p>
+        <table class="table" *ngIf="!patchpanelSpinnerShow && patchpanels.length > 0">
+          <thead>
+            <tr>
+              <td>Название</td>
+              <td>Тип</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of patchpanels">
+              <td>
+                <a [routerLink]="[patchpanels_url, item.id]" >
+                  {{ item.name }}
+                </a>
+              </td>
+              <td>
+                {{ item.type | humanView }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

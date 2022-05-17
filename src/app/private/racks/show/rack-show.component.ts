@@ -3,8 +3,10 @@ import {Rack, RACK_DEFAULT} from "../../../models/rack";
 import {RacksService} from "../../../services/racks.service";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {ToastrService} from "ngx-toastr";
-import {RACKS_URL} from "../../../consts";
+import {PATCHPANELS_URL, RACKS_URL} from "../../../consts";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Patchpanel} from "../../../models/patchpanel";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-rack-show',
@@ -13,6 +15,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class RackShowComponent implements OnInit{
   rack: Rack = RACK_DEFAULT
+  patchpanels: Patchpanel[] = []
+  patchpanelSpinnerShow = true
+  patchpanelSpinnerIcon = faSpinner
+  patchpanels_url = PATCHPANELS_URL
 
   constructor(private rackService: RacksService,
               private breadcrumbs: BreadcrumbService,
@@ -29,6 +35,7 @@ export class RackShowComponent implements OnInit{
     const rackId = this.route.snapshot.paramMap.get('id')
     if (rackId) {
       this.getRackData(rackId)
+      this.getPatchpanels(rackId)
     }
   }
 
@@ -41,6 +48,19 @@ export class RackShowComponent implements OnInit{
         error: (error) => {
           this.toastr.error(error)
           console.log(error)
+        }
+      })
+  }
+
+  getPatchpanels(id: string) {
+    this.rackService.getPatchpanels(id)
+      .subscribe({
+        next: (data) => {
+          this.patchpanels = data
+          this.patchpanelSpinnerShow = false
+        },
+        error: (error) => {
+          this.toastr.error(error, 'Патчпанели')
         }
       })
   }
