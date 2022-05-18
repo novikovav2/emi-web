@@ -23,21 +23,22 @@ export class AuthInterceptor implements HttpInterceptor {
         // Add authorization token to request headers
         headers: req.headers.set("Authorization", "Bearer " + token)
       })
-      return next.handle(newReq).pipe(
-        tap((httpEvent: HttpEvent<any>) => {
-          if (httpEvent.type === 0) {
-            return
-          }
-          if (httpEvent instanceof HttpResponse) {
-            const newToken = httpEvent.headers.get('x-new-token')
-            if (newToken) {
-              // Set new token from response header
-              localStorage.setItem(TOKEN, newToken)
-            }
-          }
-        }),
-        catchError(this.errorHandler)
-      )
+      return next.handle(newReq)
+      //   .pipe(
+      //   tap((httpEvent: HttpEvent<any>) => {
+      //     if (httpEvent.type === 0) {
+      //       return
+      //     }
+      //     if (httpEvent instanceof HttpResponse) {
+      //       const newToken = httpEvent.headers.get('x-new-token')
+      //       if (newToken) {
+      //         // Set new token from response header
+      //         localStorage.setItem(TOKEN, newToken)
+      //       }
+      //     }
+      //   }),
+      //   catchError(this.errorHandler)
+      // )
     } else {
       return next.handle(req)
     }
