@@ -4,7 +4,9 @@ import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {PatchpanelsService} from "../../../services/patchpanels.service";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DELETED, PATCHPANELS_URL} from "../../../consts";
+import {DELETED, PATCHPANELS_URL, RACKS_URL, ROOMS_URL} from "../../../consts";
+import {RacksService} from "../../../services/racks.service";
+import {Room, ROOM_DEFAULT} from "../../../models/room";
 
 @Component({
   selector: 'app-patchpanels-show',
@@ -13,12 +15,16 @@ import {DELETED, PATCHPANELS_URL} from "../../../consts";
 })
 export class PatchpanelsShowComponent implements OnInit {
   patchpanel: Patchpanel = PATCHPANEL_DEFAULT
+  room: Room = ROOM_DEFAULT
+  rooms_url = ROOMS_URL
+  racks_url = RACKS_URL
 
   constructor(private breadcrumbs: BreadcrumbService,
               private patchpanelService: PatchpanelsService,
               private toastr: ToastrService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private rackService: RacksService) {
     this.breadcrumbs.setItems([
       { title: 'Патчпанели', address: PATCHPANELS_URL},
       { title: 'Детали', address: ''}
@@ -37,6 +43,19 @@ export class PatchpanelsShowComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.patchpanel = data
+          this.getRoomData(data.rack.id)
+        },
+        error: (error) => {
+          this.toastr.error(error)
+        }
+      })
+  }
+
+  getRoomData(rackId: string) {
+    this.rackService.getOne(rackId)
+      .subscribe({
+        next: (data) => {
+          this.room = data.room
         },
         error: (error) => {
           this.toastr.error(error)

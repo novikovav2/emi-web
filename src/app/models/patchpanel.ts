@@ -1,11 +1,12 @@
 import {material} from "./material";
 import {Rack} from "./rack";
+import {ROOM_DEFAULT} from "./room";
 
 export interface Patchpanel {
   id: string,
   name: string,
   type: material,
-  rack: Partial<Rack>
+  rack: Rack
 }
 
 export interface PatchpanelForm {
@@ -23,6 +24,8 @@ export const PATCHPANEL_DEFAULT: Patchpanel = {
   name: '',
   type: 'COPPER',
   rack: {
-    id: ''
+    id: '',
+    name: '',
+    room: ROOM_DEFAULT
   }
 }

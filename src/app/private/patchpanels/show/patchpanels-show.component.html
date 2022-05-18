@@ -15,6 +15,30 @@
           </a>
         </div>
       </div>
+      <div class="card-body">
+        <div class="row w-33">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td>Помещение</td>
+              <td>
+                <a [routerLink]="[rooms_url, room.id]">
+                  {{ room.title }}
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Стойка</td>
+              <td>
+                <a [routerLink]="[racks_url, patchpanel.rack.id]">
+                  {{ patchpanel.rack.name }}
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

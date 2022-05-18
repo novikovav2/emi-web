@@ -3,7 +3,7 @@ import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {PatchpanelsService} from "../../../services/patchpanels.service";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
-import {PATCHPANELS, PATCHPANELS_URL} from "../../../consts";
+import {PATCHPANEL_CREATED, PATCHPANELS, PATCHPANELS_URL} from "../../../consts";
 import {PatchpanelForm} from "../../../models/patchpanel";
 
 @Component({
@@ -27,8 +27,8 @@ export class PatchpanelsNewComponent {
     this.patchpanelService.add(patchpanel)
       .subscribe({
         next: (data) => {
-          console.log(data)
-          this.router.navigate([PATCHPANELS_URL, data.id])
+          this.toastr.success(PATCHPANEL_CREATED, data.name)
+          this.router.navigate([PATCHPANELS_URL])
         },
         error: (error) => {
           this.toastr.error(error)
