@@ -24,8 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: req.headers.set("Authorization", "Bearer " + token)
       })
       return next.handle(newReq)
-      //   .pipe(
-      //   tap((httpEvent: HttpEvent<any>) => {
+        .pipe(
+        tap((httpEvent: HttpEvent<any>) => {
       //     if (httpEvent.type === 0) {
       //       return
       //     }
@@ -36,9 +36,9 @@ export class AuthInterceptor implements HttpInterceptor {
       //         localStorage.setItem(TOKEN, newToken)
       //       }
       //     }
-      //   }),
-      //   catchError(this.errorHandler)
-      // )
+        }),
+        catchError(this.errorHandler)
+      )
     } else {
       return next.handle(req)
     }

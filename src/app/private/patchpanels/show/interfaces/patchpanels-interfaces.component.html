@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="w-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          Интерфейсы
+        </h3>
+        <div class="card-actions">
+          <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-control">
+              <input class="form-input form-input_inline" formControlName="name">
+              <button class="button form-submit form-submit_inline" type="submit">
+                Добавить
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card-body">
+        <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true"
+                 *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+        <p class="card-spinner" *ngIf="!spinnerShow && interfaces.length === 0">
+          Нет интерфейсов
+        </p>
+        <table class="table" *ngIf="!spinnerShow && interfaces.length > 0">
+          <thead>
+          <tr>
+            <td>Название</td>
+            <td>Подключен?</td>
+            <td></td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of interfaces">
+            <td>
+              {{ item.name }}
+            </td>
+            <td>
+              {{ item.connected | humanView }}
+            </td>
+            <td>
+              <a (click)="onDelete(item.id)">
+                <fa-icon [icon]="trashIcon" size="1x"></fa-icon>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

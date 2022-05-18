@@ -1,9 +1,10 @@
 import {Injectable} from "@angular/core";
-import {PATCHPANELS_URL} from "../consts";
+import {INTERFACES_URL, PATCHPANELS_URL} from "../consts";
 import {HttpClient} from "@angular/common/http";
 import {Patchpanel, PatchpanelForm, PatchpanelUpdated} from "../models/patchpanel";
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
+import {Interface} from "../models/interface";
 
 @Injectable()
 export class PatchpanelsService {
@@ -30,5 +31,17 @@ export class PatchpanelsService {
 
   delete(id: string) {
     return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
+
+  getInterfaces(id: string) {
+    return this.http.get<Interface[]>(environment.apiUrl + this.url + '/' + id + INTERFACES_URL )
+  }
+
+  addInterface(id:string, int: Partial<Interface>) {
+    return this.http.post<Interface>(environment.apiUrl + this.url + '/' + id + INTERFACES_URL, int)
+  }
+
+  deleteInterface(id: string, intId: string) {
+    return this.http.delete(environment.apiUrl + this.url + '/' + id + INTERFACES_URL + '/' + intId)
   }
 }

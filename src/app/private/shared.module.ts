@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {HeaderComponent} from "./header/header.component";
 import {RouterModule} from "@angular/router";
-import {MaterialPipe} from "../services/material.pipe"
+import {TextTransformPipe} from "../services/text-transform.pipe"
 
 @NgModule({
   imports: [
@@ -11,11 +11,11 @@ import {MaterialPipe} from "../services/material.pipe"
   ],
   declarations: [
     HeaderComponent,
-    MaterialPipe
+    TextTransformPipe
   ],
   exports: [
     HeaderComponent,
-    MaterialPipe
+    TextTransformPipe
   ]
 })
 export class SharedModule {

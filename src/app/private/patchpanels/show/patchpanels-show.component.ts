@@ -7,6 +7,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DELETED, PATCHPANELS_URL, RACKS_URL, ROOMS_URL} from "../../../consts";
 import {RacksService} from "../../../services/racks.service";
 import {Room, ROOM_DEFAULT} from "../../../models/room";
+import {Interface} from "../../../models/interface";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-patchpanels-show',
@@ -16,8 +18,11 @@ import {Room, ROOM_DEFAULT} from "../../../models/room";
 export class PatchpanelsShowComponent implements OnInit {
   patchpanel: Patchpanel = PATCHPANEL_DEFAULT
   room: Room = ROOM_DEFAULT
+  interfaces: Interface[] = []
   rooms_url = ROOMS_URL
   racks_url = RACKS_URL
+  interfacesSpinnerShow = true
+  interfacesSpinnerIcon = faSpinner
 
   constructor(private breadcrumbs: BreadcrumbService,
               private patchpanelService: PatchpanelsService,
@@ -35,6 +40,7 @@ export class PatchpanelsShowComponent implements OnInit {
     const patchpanelId = this.route.snapshot.paramMap.get('id')
     if (patchpanelId) {
       this.getData(patchpanelId)
+      // this.getInterfacesData(patchpanelId)
     }
   }
 
@@ -56,6 +62,20 @@ export class PatchpanelsShowComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.room = data.room
+        },
+        error: (error) => {
+          this.toastr.error(error)
+        }
+      })
+  }
+
+  getInterfacesData(id: string) {
+    this.patchpanelService.getInterfaces(id)
+      .subscribe({
+        next: (data) => {
+          this.interfaces = data
+          this.interfacesSpinnerShow = false
+          console.log(this.interfaces)
         },
         error: (error) => {
           this.toastr.error(error)

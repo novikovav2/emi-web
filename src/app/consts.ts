@@ -10,10 +10,12 @@ export const ROOMS = 'rooms'
 export const RACKS = 'racks'
 export const ROOT = ''
 export const PATCHPANELS = 'patchpanels'
+export const INTERFACES = 'interfaces'
 
 export const ROOMS_URL = '/' + ROOMS
 export const RACKS_URL = '/' + RACKS
 export const PATCHPANELS_URL = '/' + PATCHPANELS
+export const INTERFACES_URL = '/' + INTERFACES
 
 export const NEW = 'new'
 export const EDIT = 'edit'
@@ -22,3 +24,4 @@ export const ROOM_CREATED = 'Помещение создано'
 export const UPDATED = 'Изменения сохранены'
 export const DELETED = 'Объект удален'
 export const PATCHPANEL_CREATED = 'Патчпанель создана'
+export const INTERFACE_DELETED = 'Интерфейс удален'

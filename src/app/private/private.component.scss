@@ -166,6 +166,10 @@
     &:disabled {
       background-color: var(--light);
     }
+
+    &_inline {
+      padding: 6px 12px;
+    }
   }
 
   &-actions {
@@ -185,6 +189,12 @@
 
     &:disabled {
       background-color: var(--brandGreen-light)!important;
+    }
+
+    &_inline {
+      width: 160px;
+      padding: 6px 6px;
+      margin-left: 12px;
     }
   }
 
