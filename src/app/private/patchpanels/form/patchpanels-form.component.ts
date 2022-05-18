@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from "@angular/core";
 import {Patchpanel, PATCHPANEL_DEFAULT, PatchpanelForm} from "../../../models/patchpanel";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
@@ -12,10 +12,11 @@ import {RoomsService} from "../../../services/rooms.service";
   templateUrl: './patchpanels-form.component.html',
   styleUrls: ['../../private.component.scss']
 })
-export class PatchpanelsFormComponent implements OnInit {
+export class PatchpanelsFormComponent implements OnInit, OnChanges {
   @Input() patchpanel: Patchpanel = PATCHPANEL_DEFAULT
   @Output() submitEvent = new EventEmitter<PatchpanelForm>()
   @Output() resetEvent = new EventEmitter()
+  @Input() isDisabled: boolean = false
   rooms: Room[] = []
   racks: Rack[] = []
   types = [
@@ -45,6 +46,24 @@ export class PatchpanelsFormComponent implements OnInit {
         },
         error: (error) => {
           this.toastr.error(error, 'Список помещений')
+        }
+      })
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.form.controls['name'].setValue(changes['patchpanel'].currentValue.name)
+    this.form.controls['type'].setValue(changes['patchpanel'].currentValue.type)
+
+    const rackId = changes['patchpanel'].currentValue.rack.id
+    this.form.controls['rack_id'].setValue(rackId)
+    this.rackService.getOne(rackId)
+      .subscribe({
+        next: (data) => {
+          this.form.controls['room_id'].setValue(data.room.id)
+          this.getRacksData(data.room.id)
+        },
+        error: (error) => {
+          this.toastr.error(error)
         }
       })
   }

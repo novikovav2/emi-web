@@ -14,6 +14,10 @@ export interface PatchpanelForm {
   type: material
 }
 
+export interface PatchpanelUpdated {
+  name: string
+}
+
 export const PATCHPANEL_DEFAULT: Patchpanel = {
   id: '',
   name: '',

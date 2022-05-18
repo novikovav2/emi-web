@@ -4,7 +4,7 @@ import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {RacksService} from "../../../services/racks.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import {RACKS} from "../../../consts";
+import {RACKS, RACKS_URL} from "../../../consts";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -23,8 +23,8 @@ export class RacksEditComponent implements OnInit {
               private toastr: ToastrService,
               private route: ActivatedRoute) {
     this.breadcrumbs.setItems([
-      {title: 'Помещения', address: '/' + RACKS},
-      {title: 'Изменить', address: '/' + RACKS}
+      {title: 'Помещения', address: RACKS_URL},
+      {title: 'Изменить', address: RACKS_URL}
     ])
   }
 

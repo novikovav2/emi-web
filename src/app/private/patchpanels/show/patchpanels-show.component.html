@@ -7,7 +7,7 @@
           {{ patchpanel.name }}
         </h3>
         <div class="card-actions">
-          <a [routerLink]="['/patchpanels']" class="link">
+          <a [routerLink]="['/patchpanels', 'edit', patchpanel.id]" class="link">
             Изменить
           </a>
           <a class="link" (click)="onDelete()">

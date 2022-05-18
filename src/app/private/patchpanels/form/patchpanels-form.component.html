@@ -3,7 +3,7 @@
     <label class="form-label">Помещение</label>
     <div class="form-value">
       <select class="form-input" (change)="onChangeRoom()" formControlName="room_id"
-              [attr.disabled]="roomDisabled ? '' : null">
+              [attr.disabled]="roomDisabled || isDisabled ? '' : null">
         <option [ngValue]="null">Выберите помещение</option>
         <option *ngFor="let room of rooms" [ngValue]="room.id" >
           {{ room.title }}
@@ -16,7 +16,7 @@
     <label class="form-label">Стойка</label>
     <div class="form-value">
       <select class="form-input" formControlName="rack_id"
-              [attr.disabled]="rackDisabled ? '' : null">
+              [attr.disabled]="rackDisabled || isDisabled ? '' : null">
         <option [ngValue]="null">Выберите стойку</option>
         <option *ngFor="let rack of racks" [ngValue]="rack.id" >
           {{ rack.name }}
@@ -40,7 +40,7 @@
     <label class="form-label">Тип</label>
     <div class="form-value">
       <select class="form-input" formControlName="type"
-              [attr.disabled]="typeDisabled ? '' : null">
+              [attr.disabled]="typeDisabled || isDisabled ? '' : null">
         <option [ngValue]="null">Выберите тип</option>
         <option *ngFor="let type of types" [ngValue]="type.value" >
           {{ type.text }}

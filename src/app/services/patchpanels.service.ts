@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {PATCHPANELS_URL} from "../consts";
 import {HttpClient} from "@angular/common/http";
-import {Patchpanel, PatchpanelForm} from "../models/patchpanel";
+import {Patchpanel, PatchpanelForm, PatchpanelUpdated} from "../models/patchpanel";
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
 
@@ -22,5 +22,9 @@ export class PatchpanelsService {
 
   getOne(id: string) {
     return this.http.get<Patchpanel>(environment.apiUrl + this.url + '/' + id)
+  }
+
+  update(id: string, patchpanel: PatchpanelUpdated) {
+    return this.http.post<Patchpanel>(environment.apiUrl + this.url + '/' + id, patchpanel)
   }
 }

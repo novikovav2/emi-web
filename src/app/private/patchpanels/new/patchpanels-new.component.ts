@@ -28,6 +28,7 @@ export class PatchpanelsNewComponent {
       .subscribe({
         next: (data) => {
           console.log(data)
+          this.router.navigate([PATCHPANELS_URL, data.id])
         },
         error: (error) => {
           this.toastr.error(error)
