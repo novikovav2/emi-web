@@ -20,3 +20,4 @@ export const EDIT = 'edit'
 
 export const ROOM_CREATED = 'Помещение создано'
 export const UPDATED = 'Изменения сохранены'
+export const DELETED = 'Объект удален'

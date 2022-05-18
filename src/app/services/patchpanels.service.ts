@@ -27,4 +27,8 @@ export class PatchpanelsService {
   update(id: string, patchpanel: PatchpanelUpdated) {
     return this.http.post<Patchpanel>(environment.apiUrl + this.url + '/' + id, patchpanel)
   }
+
+  delete(id: string) {
+    return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
 }

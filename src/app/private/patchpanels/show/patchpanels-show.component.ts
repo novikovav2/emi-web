@@ -4,7 +4,7 @@ import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {PatchpanelsService} from "../../../services/patchpanels.service";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PATCHPANELS_URL} from "../../../consts";
+import {DELETED, PATCHPANELS_URL} from "../../../consts";
 
 @Component({
   selector: 'app-patchpanels-show',
@@ -45,6 +45,15 @@ export class PatchpanelsShowComponent implements OnInit {
   }
 
   onDelete() {
-
+    this.patchpanelService.delete(this.patchpanel.id)
+      .subscribe({
+        next: () => {
+          this.toastr.success(DELETED)
+          this.router.navigate([PATCHPANELS_URL])
+        },
+        error: (error) => {
+          this.toastr.error(error)
+        }
+      })
   }
 }
