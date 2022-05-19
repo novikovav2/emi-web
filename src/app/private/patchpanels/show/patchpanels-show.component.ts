@@ -69,19 +69,19 @@ export class PatchpanelsShowComponent implements OnInit {
       })
   }
 
-  getInterfacesData(id: string) {
-    this.patchpanelService.getInterfaces(id)
-      .subscribe({
-        next: (data) => {
-          this.interfaces = data
-          this.interfacesSpinnerShow = false
-          console.log(this.interfaces)
-        },
-        error: (error) => {
-          this.toastr.error(error)
-        }
-      })
-  }
+  // getInterfacesData(id: string) {
+  //   this.patchpanelService.getInterfaces(id)
+  //     .subscribe({
+  //       next: (data) => {
+  //         this.interfaces = data
+  //         this.interfacesSpinnerShow = false
+  //         console.log(this.interfaces)
+  //       },
+  //       error: (error) => {
+  //         this.toastr.error(error)
+  //       }
+  //     })
+  // }
 
   onDelete() {
     this.patchpanelService.delete(this.patchpanel.id)

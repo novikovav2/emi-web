@@ -25,8 +25,16 @@
         <table class="table" *ngIf="!spinnerShow && interfaces.length > 0">
           <thead>
           <tr>
-            <td>Название</td>
-            <td>Подключен?</td>
+            <td (click)="changeOrder('name')">
+              Название
+              <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'name' && orderDirection === 'asc' "></fa-icon>
+              <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'name' && orderDirection === 'desc' "></fa-icon>
+            </td>
+            <td (click)="changeOrder('connected')">
+              Подключен?
+              <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
+              <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
+            </td>
             <td></td>
           </tr>
           </thead>

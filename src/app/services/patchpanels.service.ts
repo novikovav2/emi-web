@@ -5,6 +5,7 @@ import {Patchpanel, PatchpanelForm, PatchpanelUpdated} from "../models/patchpane
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
 import {Interface} from "../models/interface";
+import {GetParams} from "../models/get-params";
 
 @Injectable()
 export class PatchpanelsService {
@@ -33,8 +34,10 @@ export class PatchpanelsService {
     return this.http.delete(environment.apiUrl + this.url + '/' + id)
   }
 
-  getInterfaces(id: string) {
-    return this.http.get<Interface[]>(environment.apiUrl + this.url + '/' + id + INTERFACES_URL )
+  getInterfaces(id: string, params: Partial<GetParams>) {
+    return this.http.get<Interface[]>(environment.apiUrl + this.url + '/' + id + INTERFACES_URL, {
+      params: params
+    })
   }
 
   addInterface(id:string, int: Partial<Interface>) {

@@ -1,11 +1,12 @@
 import {Component, Input, OnChanges, SimpleChanges} from "@angular/core";
 import {Patchpanel, PATCHPANEL_DEFAULT} from "../../../../models/patchpanel";
-import {faSpinner, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {faCaretDown, faCaretUp, faSpinner, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {PatchpanelsService} from "../../../../services/patchpanels.service";
 import {Interface} from "../../../../models/interface";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {INTERFACE_DELETED} from "../../../../consts";
+import {directionOrder, GetParams} from "../../../../models/get-params";
 
 @Component({
   selector: 'app-patchpanel-interfaces',
@@ -18,6 +19,10 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
   spinnerShow = true
   spinnerIcon = faSpinner
   trashIcon = faTrashCan
+  orderBy = 'name'
+  orderDirection: directionOrder = 'asc'
+  sortAscIcon = faCaretDown
+  sortDescIcon = faCaretUp
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required])
@@ -35,7 +40,11 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
   }
 
   getData(id: string) {
-    this.patchpanelService.getInterfaces(id)
+    const params: Partial<GetParams> = {
+      order: this.orderBy,
+      direction: this.orderDirection
+    }
+    this.patchpanelService.getInterfaces(id, params)
       .subscribe({
         next: (data) => {
           this.interfaces = data
@@ -77,5 +86,17 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
           this.toastr.error(error)
         }
       })
+  }
+
+  changeOrder(order: string) {
+    this.spinnerShow = true
+    if (this.orderBy === order ) {
+      this.orderDirection = this.orderDirection === 'asc' ? 'desc' : 'asc'
+    } else  {
+      this.orderBy = order
+      this.orderDirection = 'asc'
+    }
+
+    this.getData(this.patchpanel.id)
   }
 }
