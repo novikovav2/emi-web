@@ -5,7 +5,7 @@ import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
 import {
   AUTH_LOGIN_PAGE,
-  AUTH_PAGE,
+  AUTH_PAGE, DEVICES,
   EDIT,
   LOGIN_PAGE,
   NEW,
@@ -28,6 +28,7 @@ import {PatchpanelsIndexComponent} from "./private/patchpanels/index/patchpanels
 import {PatchpanelsNewComponent} from "./private/patchpanels/new/patchpanels-new.component";
 import {PatchpanelsShowComponent} from "./private/patchpanels/show/patchpanels-show.component";
 import {PatchpanelsEditComponent} from "./private/patchpanels/edit/patchpanels-edit.component";
+import {DevicesIndexComponent} from "./private/devices/index/devices-index.component";
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -65,6 +66,12 @@ const routes: Routes = [
           { path: NEW, component: PatchpanelsNewComponent },
           { path: EDIT + '/:id', component: PatchpanelsEditComponent },
           { path: ':id', component: PatchpanelsShowComponent }
+        ]
+      },
+      {
+        path: DEVICES,
+        children: [
+          { path: ROOT, component: DevicesIndexComponent }
         ]
       }
     ]

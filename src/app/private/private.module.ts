@@ -26,6 +26,8 @@ import {RacksEditComponent} from "./racks/edit/racks-edit.component";
 import {PatchpanelsModule} from "./patchpanels/patchpanels.module";
 import {PatchpanelsService} from "../services/patchpanels.service";
 import {SharedModule} from "./shared.module";
+import {DevicesModule} from "./devices/devices.module";
+import {DevicesService} from "../services/devices.service";
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import {SharedModule} from "./shared.module";
     FontAwesomeModule,
     ReactiveFormsModule,
     PatchpanelsModule,
-    SharedModule
+    SharedModule,
+    DevicesModule
   ],
   exports: [
     PrivateComponent,
@@ -78,7 +81,8 @@ import {SharedModule} from "./shared.module";
     RoomsService,
     BreadcrumbService,
     RacksService,
-    PatchpanelsService
+    PatchpanelsService,
+    DevicesService
   ]
 })
 export class PrivateModule {

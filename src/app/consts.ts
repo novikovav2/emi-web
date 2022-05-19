@@ -11,11 +11,13 @@ export const RACKS = 'racks'
 export const ROOT = ''
 export const PATCHPANELS = 'patchpanels'
 export const INTERFACES = 'interfaces'
+export const DEVICES = 'devices'
 
 export const ROOMS_URL = '/' + ROOMS
 export const RACKS_URL = '/' + RACKS
 export const PATCHPANELS_URL = '/' + PATCHPANELS
 export const INTERFACES_URL = '/' + INTERFACES
+export const DEVICES_URL = '/' + DEVICES
 
 export const NEW = 'new'
 export const EDIT = 'edit'

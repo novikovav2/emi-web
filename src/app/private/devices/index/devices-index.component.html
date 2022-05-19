@@ -1,10 +1,10 @@
-<app-header title="Патчпанели"></app-header>
+<app-header title="Оборудование"></app-header>
 <div class="row">
   <div class="w-100">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">
-          Существующие патчпанели
+          Существующее оборудование
         </h3>
         <div class="card-actions">
           <a [routerLink]="[new_url]">
@@ -14,31 +14,27 @@
       </div>
       <div class="card-body">
         <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
-        <p class="card-spinner" *ngIf="!spinnerShow && patchpanels.length === 0">
-          Нет патчпанелей
+        <p class="card-spinner" *ngIf="!spinnerShow && devices.length === 0">
+          Нет оборудования
         </p>
-        <table class="table" *ngIf="!spinnerShow && patchpanels.length > 0">
+        <table class="table" *ngIf="!spinnerShow && devices.length > 0">
           <thead>
             <tr>
               <td>Название</td>
               <td>Стойка</td>
-              <td>Материал</td>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of patchpanels">
+            <tr *ngFor="let device of devices">
               <td>
-                <a [routerLink]="[item.id]">
-                  {{ item.name }}
+                <a>
+                  {{ device.name }}
                 </a>
               </td>
               <td>
-                <a [routerLink]="[racks_url, item.rack.id]">
-                  {{ item.rack.name }}
+                <a>
+                  {{ device.rack.name }}
                 </a>
-              </td>
-              <td>
-                {{ item.type | humanView }}
               </td>
             </tr>
           </tbody>
