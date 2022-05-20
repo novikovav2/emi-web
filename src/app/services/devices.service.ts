@@ -16,7 +16,15 @@ export class DevicesService {
       .pipe(retry(2))
   }
 
+  getOne(id: string) {
+    return this.http.get<Device>(environment.apiUrl + this.url + '/' + id)
+  }
+
   add(device: DeviceForm) {
     return this.http.post<Device>(environment.apiUrl + this.url, device)
+  }
+
+  delete(id: string) {
+    return this.http.delete(environment.apiUrl + this.url + '/' + id)
   }
 }

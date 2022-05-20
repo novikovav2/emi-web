@@ -27,7 +27,7 @@
           <tbody>
             <tr *ngFor="let device of devices">
               <td>
-                <a>
+                <a [routerLink]="[device.id]">
                   {{ device.name }}
                 </a>
               </td>

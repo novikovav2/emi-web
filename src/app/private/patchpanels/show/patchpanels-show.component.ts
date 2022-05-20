@@ -8,7 +8,6 @@ import {DELETED, PATCHPANELS_URL, RACKS_URL, ROOMS_URL} from "../../../consts";
 import {RacksService} from "../../../services/racks.service";
 import {Room, ROOM_DEFAULT} from "../../../models/room";
 import {Interface} from "../../../models/interface";
-import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-patchpanels-show',
@@ -21,8 +20,6 @@ export class PatchpanelsShowComponent implements OnInit {
   interfaces: Interface[] = []
   rooms_url = ROOMS_URL
   racks_url = RACKS_URL
-  interfacesSpinnerShow = true
-  interfacesSpinnerIcon = faSpinner
 
   constructor(private breadcrumbs: BreadcrumbService,
               private patchpanelService: PatchpanelsService,

@@ -8,19 +8,22 @@ import {DevicesComponent} from "./devices.component";
 import {DevicesIndexComponent} from "./index/devices-index.component";
 import {DevicesNewComponent} from "./new/devices-new.component"
 import {DevicesFormComponent} from "./form/devices-form.component";
+import {DevicesShowComponent} from "./show/devices-show.component"
 
 @NgModule({
   declarations: [
     DevicesComponent,
     DevicesIndexComponent,
     DevicesNewComponent,
-    DevicesFormComponent
+    DevicesFormComponent,
+    DevicesShowComponent
   ],
   exports: [
     DevicesComponent,
     DevicesIndexComponent,
     DevicesNewComponent,
-    DevicesFormComponent
+    DevicesFormComponent,
+    DevicesShowComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,9 @@
-import {Rack} from "./rack";
+import {Rack, RACK_DEFAULT} from "./rack";
 
 export interface Device {
   id: string,
   name: string,
-  rack: Partial<Rack>
+  rack: Rack
 }
 
 export interface DeviceForm {
@@ -14,5 +14,5 @@ export interface DeviceForm {
 export const DEVICE_DEFAULT: Device = {
   id: '',
   name: '',
-  rack: {}
+  rack: RACK_DEFAULT
 }
