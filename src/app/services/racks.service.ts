@@ -1,10 +1,11 @@
 import {Injectable} from "@angular/core";
-import {PATCHPANELS_URL, RACKS_URL} from "../consts";
+import {DEVICES_URL, PATCHPANELS_URL, RACKS_URL} from "../consts";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
 import {Rack, RackNew, RackUpdated} from "../models/rack"
 import {Patchpanel} from "../models/patchpanel";
+import {Device} from "../models/device";
 
 @Injectable()
 export class RacksService {
@@ -35,5 +36,9 @@ export class RacksService {
 
   getPatchpanels(id: string) {
     return this.http.get<Patchpanel[]>(environment.apiUrl + this.url + '/' + id + PATCHPANELS_URL)
+  }
+
+  getDevices(id: string) {
+    return this.http.get<Device[]>(environment.apiUrl + this.url + '/' + id + DEVICES_URL)
   }
 }
