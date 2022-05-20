@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Device} from "../../../models/device";
 import {faCirclePlus, faSpinner} from "@fortawesome/free-solid-svg-icons";
-import {DEVICES_URL, NEW} from "../../../consts";
+import {DEVICES_URL, NEW, RACKS_URL} from "../../../consts";
 import {BreadcrumbService} from "../../../services/breadcrumb.service";
 import {ToastrService} from "ngx-toastr";
 import {DevicesService} from "../../../services/devices.service";
@@ -17,6 +17,7 @@ export class DevicesIndexComponent implements OnInit {
   spinnerShow = true
   spinnerIcon = faSpinner
   new_url = NEW
+  racks_url = RACKS_URL
 
   constructor(private breadcrumbs: BreadcrumbService,
               private toastr: ToastrService,

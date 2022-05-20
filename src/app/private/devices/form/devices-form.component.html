@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (reset)="onReset()" class="form">
+  <div class="form-control">
+    <label class="form-label">Помещение</label>
+    <div class="form-value">
+      <select class="form-input" (change)="onChangeRoom()" formControlName="room_id"
+              [attr.disabled]="isDisabled ? '' : null">
+        <option [ngValue]="null">Выберите помещение</option>
+        <option *ngFor="let room of rooms" [ngValue]="room.id" >
+          {{ room.title }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label class="form-label">Стойка</label>
+    <div class="form-value">
+      <select class="form-input" formControlName="rack_id"
+              [attr.disabled]="rackDisabled || isDisabled ? '' : null">
+        <option [ngValue]="null">Выберите стойку</option>
+        <option *ngFor="let rack of racks" [ngValue]="rack.id" >
+          {{ rack.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="name" class="form-label">Название</label>
+    <div class="form-value">
+      <input id="name" class="form-input" formControlName="name">
+      <p *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+         class="form-warning_text">
+        Название не может быть пустым
+      </p>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="button form-submit" [disabled]="!form.valid" >
+      Сохранить
+    </button>
+    <button type="reset" class="button form-reset">
+      Отмена
+    </button>
+  </div>
+</form>

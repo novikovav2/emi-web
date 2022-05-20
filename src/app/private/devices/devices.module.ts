@@ -6,15 +6,21 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {SharedModule} from "../shared.module";
 import {DevicesComponent} from "./devices.component";
 import {DevicesIndexComponent} from "./index/devices-index.component";
+import {DevicesNewComponent} from "./new/devices-new.component"
+import {DevicesFormComponent} from "./form/devices-form.component";
 
 @NgModule({
   declarations: [
     DevicesComponent,
-    DevicesIndexComponent
+    DevicesIndexComponent,
+    DevicesNewComponent,
+    DevicesFormComponent
   ],
   exports: [
     DevicesComponent,
-    DevicesIndexComponent
+    DevicesIndexComponent,
+    DevicesNewComponent,
+    DevicesFormComponent
   ],
   imports: [
     CommonModule,
