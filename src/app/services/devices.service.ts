@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {DEVICES_URL} from "../consts";
 import {HttpClient} from "@angular/common/http";
-import {Device, DeviceForm} from "../models/device";
+import {Device, DeviceForm, DeviceUpdated} from "../models/device";
 import {environment} from "../../environments/environment";
 import {retry} from "rxjs";
 
@@ -26,5 +26,9 @@ export class DevicesService {
 
   delete(id: string) {
     return this.http.delete(environment.apiUrl + this.url + '/' + id)
+  }
+
+  update(id: string, device: DeviceUpdated) {
+    return this.http.post<Device>(environment.apiUrl + this.url + '/' + id, device)
   }
 }

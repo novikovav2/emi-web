@@ -31,6 +31,7 @@ import {PatchpanelsEditComponent} from "./private/patchpanels/edit/patchpanels-e
 import {DevicesIndexComponent} from "./private/devices/index/devices-index.component";
 import {DevicesNewComponent} from "./private/devices/new/devices-new.component";
 import {DevicesShowComponent} from "./private/devices/show/devices-show.component";
+import { DevicesEditComponent } from './private/devices/edit/devices-edit.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -75,6 +76,7 @@ const routes: Routes = [
         children: [
           { path: ROOT, component: DevicesIndexComponent },
           { path: NEW, component: DevicesNewComponent },
+          { path: EDIT + '/:id', component: DevicesEditComponent },
           { path: ':id', component: DevicesShowComponent }
         ]
       }

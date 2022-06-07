@@ -9,6 +9,7 @@ import {DevicesIndexComponent} from "./index/devices-index.component";
 import {DevicesNewComponent} from "./new/devices-new.component"
 import {DevicesFormComponent} from "./form/devices-form.component";
 import {DevicesShowComponent} from "./show/devices-show.component"
+import { DevicesEditComponent } from "./edit/devices-edit.component";
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import {DevicesShowComponent} from "./show/devices-show.component"
     DevicesIndexComponent,
     DevicesNewComponent,
     DevicesFormComponent,
-    DevicesShowComponent
+    DevicesShowComponent,
+    DevicesEditComponent
   ],
   exports: [
     DevicesComponent,
     DevicesIndexComponent,
     DevicesNewComponent,
     DevicesFormComponent,
-    DevicesShowComponent
+    DevicesShowComponent,
+    DevicesEditComponent
   ],
   imports: [
     CommonModule,

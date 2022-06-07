@@ -11,6 +11,10 @@ export interface DeviceForm {
   rackId: string
 }
 
+export interface DeviceUpdated {
+  name: string
+}
+
 export const DEVICE_DEFAULT: Device = {
   id: '',
   name: '',
