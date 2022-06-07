@@ -5,7 +5,7 @@ import {PatchpanelsService} from "../../../../services/patchpanels.service";
 import {Interface} from "../../../../models/interface";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {INTERFACE_DELETED} from "../../../../consts";
+import {INTERFACE_CREATED, INTERFACE_DELETED} from "../../../../consts";
 import {directionOrder, GetParams} from "../../../../models/get-params";
 
 @Component({
@@ -63,7 +63,8 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
     }
     this.patchpanelService.addInterface(this.patchpanel.id, int)
       .subscribe({
-        next: () => {
+        next: (data) => {
+          this.toastr.success(INTERFACE_CREATED, data.name)
           this.form.reset()
           this.spinnerShow = true
           this.getData(this.patchpanel.id)

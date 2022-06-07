@@ -10,6 +10,7 @@ import {DevicesNewComponent} from "./new/devices-new.component"
 import {DevicesFormComponent} from "./form/devices-form.component";
 import {DevicesShowComponent} from "./show/devices-show.component"
 import { DevicesEditComponent } from "./edit/devices-edit.component";
+import { DevicesInterfacesComponent } from "./show/interfaces/devices-interfaces.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DevicesEditComponent } from "./edit/devices-edit.component";
     DevicesNewComponent,
     DevicesFormComponent,
     DevicesShowComponent,
-    DevicesEditComponent
+    DevicesEditComponent,
+    DevicesInterfacesComponent
   ],
   exports: [
     DevicesComponent,
@@ -26,7 +28,8 @@ import { DevicesEditComponent } from "./edit/devices-edit.component";
     DevicesNewComponent,
     DevicesFormComponent,
     DevicesShowComponent,
-    DevicesEditComponent
+    DevicesEditComponent,
+    DevicesInterfacesComponent
   ],
   imports: [
     CommonModule,
