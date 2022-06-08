@@ -43,6 +43,11 @@
                                 <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
                                 <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
                             </td>
+                            <td (click)="changeOrder('logicalConnected')">
+                                Логически Подключен?
+                                <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
+                                <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
+                            </td>
                             <td></td>
                         </tr>
                     </thead>
@@ -56,6 +61,9 @@
                             </td>
                             <td>
                                 {{ item.connected | humanView }}
+                            </td>
+                            <td>
+                                {{ item.logicalConnected | humanView }}
                             </td>
                             <td>
                                 <a (click)="onDelete(item.id)">

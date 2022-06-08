@@ -9,6 +9,7 @@ import {
   EDIT,
   LOGIN_PAGE,
   NEW,
+  PATCHCORDS,
   PATCHPANELS,
   PRIVATE_PAGE,
   RACKS,
@@ -32,6 +33,7 @@ import {DevicesIndexComponent} from "./private/devices/index/devices-index.compo
 import {DevicesNewComponent} from "./private/devices/new/devices-new.component";
 import {DevicesShowComponent} from "./private/devices/show/devices-show.component";
 import { DevicesEditComponent } from './private/devices/edit/devices-edit.component';
+import { PatchcordsIndexComponent } from './private/patchcords/index/patchcords-index.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -78,6 +80,12 @@ const routes: Routes = [
           { path: NEW, component: DevicesNewComponent },
           { path: EDIT + '/:id', component: DevicesEditComponent },
           { path: ':id', component: DevicesShowComponent }
+        ]
+      },
+      {
+        path: PATCHCORDS,
+        children: [
+          { path: ROOT, component: PatchcordsIndexComponent }
         ]
       }
     ]

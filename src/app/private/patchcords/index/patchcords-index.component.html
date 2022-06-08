@@ -1,0 +1,69 @@
+<app-header title="Патчкорды"></app-header>
+<div class="row">
+    <div class="w-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Существующие патчкорды
+                </h3>
+                <div class="card-actions">
+                    <a [routerLink]="[new_url]">
+                        <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+                <p class="card-spinner" *ngIf="!spinnerShow && patchcords.length === 0">
+                    Нет патчкордов
+                </p>
+                <table class="table" *ngIf="!spinnerShow && patchcords.length > 0">
+                    <thead>
+                        <tr>
+                            <td>Начало стойка</td>
+                            <td>Начало оборудование</td>
+                            <td>Начало порт</td>
+                            <td>Конец стойка</td>
+                            <td>Конец оборудование</td>
+                            <td>Конец порт</td>
+                            <td>Тип</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of patchcords">
+                            <td>
+                                <a [routerLink]="[racks_url, item.start.rack.id]">
+                                    {{ item.start.rack.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a [routerLink]="item.start.owner.type === 'Patchpanel' ? [patchpanels_url, item.start.owner.id] : [devices_url, item.start.owner.id]">
+                                    {{ item.start.owner.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ item.start.interface.name }}
+                            </td>
+                            <td>
+                                <a [routerLink]="[racks_url, item.end.rack.id]">
+                                    {{ item.end.rack.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a [routerLink]="item.end.owner.type === 'Patchpanel' ? [patchpanels_url, item.end.owner.id] : [devices_url, item.end.owner.id]">
+                                    {{ item.end.owner.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ item.end.interface.name }}
+                            </td>
+                            <td>
+                                {{ item.type | humanView }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

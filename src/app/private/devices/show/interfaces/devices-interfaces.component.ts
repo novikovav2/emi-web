@@ -48,7 +48,7 @@ export class DevicesInterfacesComponent implements OnChanges {
             .subscribe({
                 next: (data) => {
                     this.interfaces = data
-                    this.spinnerShow = false
+                    this.spinnerShow = false                    
                 },
                 error: (error) => {
                     console.log(error);

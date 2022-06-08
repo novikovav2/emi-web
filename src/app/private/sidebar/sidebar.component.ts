@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {faAngleRight, faMagnifyingGlass, faRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import {AuthService} from "../../services/auth.service";
-import {AUTH_PAGE, DEVICES, LOGIN_PAGE, PATCHPANELS, RACKS, ROOMS} from "../../consts";
+import {AUTH_PAGE, DEVICES, LOGIN_PAGE, PATCHCORDS, PATCHPANELS, RACKS, ROOMS} from "../../consts";
 import {NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 
@@ -19,7 +19,8 @@ export class SidebarComponent implements OnInit {
     { title: 'Помещения', link: ROOMS, active: false },
     { title: 'Стойки', link: RACKS, active: false },
     { title: 'Патчпанели', link: PATCHPANELS, active: false },
-    { title: 'Оборудование', link: DEVICES, active: false }
+    { title: 'Оборудование', link: DEVICES, active: false },
+    { title: 'Патчкорды', link: PATCHCORDS, active: false }
   ]
 
   constructor(private auth: AuthService,

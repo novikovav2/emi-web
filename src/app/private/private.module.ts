@@ -28,6 +28,8 @@ import {PatchpanelsService} from "../services/patchpanels.service";
 import {SharedModule} from "./shared.module";
 import {DevicesModule} from "./devices/devices.module";
 import {DevicesService} from "../services/devices.service";
+import { PatchcordsModule } from "./patchcords/patchcords.module";
+import { PatchcordsService } from "../services/patchcords.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import {DevicesService} from "../services/devices.service";
     ReactiveFormsModule,
     PatchpanelsModule,
     SharedModule,
-    DevicesModule
+    DevicesModule,
+    PatchcordsModule
   ],
   exports: [
     PrivateComponent,
@@ -82,7 +85,8 @@ import {DevicesService} from "../services/devices.service";
     BreadcrumbService,
     RacksService,
     PatchpanelsService,
-    DevicesService
+    DevicesService,
+    PatchcordsService
   ]
 })
 export class PrivateModule {

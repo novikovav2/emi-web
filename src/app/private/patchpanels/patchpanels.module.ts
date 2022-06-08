@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {PatchpanelsComponent} from "./patchpanels.component";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {PatchpanelsIndexComponent} from "./index/patchpanels-index.component";
 import {SharedModule} from "../shared.module";
@@ -27,8 +27,7 @@ import {PatchpanelsInterfacesComponent} from "./show/interfaces/patchpanels-inte
     RouterModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    SharedModule,
-    FormsModule
+    SharedModule
   ],
   exports: [
     PatchpanelsComponent,
