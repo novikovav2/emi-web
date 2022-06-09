@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { faCirclePlus, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faEye, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { DEVICES_URL, NEW, PATCHCORDS_URL, PATCHPANELS_URL, RACKS_URL } from "src/app/consts";
 import { Patchcord } from "src/app/models/patchcords";
@@ -16,6 +16,7 @@ export class PatchcordsIndexComponent implements OnInit {
     addIcon = faCirclePlus
     spinnerShow = true
     spinnerIcon = faSpinner
+    viewIcon = faEye
     new_url = NEW
     racks_url = RACKS_URL
     patchpanels_url = PATCHPANELS_URL

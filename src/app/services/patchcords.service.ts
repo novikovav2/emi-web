@@ -16,6 +16,10 @@ export class PatchcordsService {
                     .pipe(retry(2))
     }
 
+    getOne(id: string) {
+        return this.http.get<Patchcord>(this.url + '/' + id)
+    }
+
     add(patchcord: PatchcordNewForm) {
         return this.http.post<Patchcord>(this.url, patchcord)
     }

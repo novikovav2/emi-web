@@ -35,6 +35,7 @@ import {DevicesShowComponent} from "./private/devices/show/devices-show.componen
 import { DevicesEditComponent } from './private/devices/edit/devices-edit.component';
 import { PatchcordsIndexComponent } from './private/patchcords/index/patchcords-index.component';
 import { PatchcordsNewComponent } from './private/patchcords/new/patchcords-new.component';
+import { PatchcordsShowComponent } from './private/patchcords/show/patchcords-show.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -87,7 +88,8 @@ const routes: Routes = [
         path: PATCHCORDS,
         children: [
           { path: ROOT, component: PatchcordsIndexComponent },
-          { path: NEW, component: PatchcordsNewComponent }
+          { path: NEW, component: PatchcordsNewComponent },
+          { path: ':id', component: PatchcordsShowComponent }
         ]
       }
     ]
