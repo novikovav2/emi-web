@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { retry } from "rxjs";
 import { environment } from "src/environments/environment";
 import { PATCHCORDS_URL } from "../consts";
-import { Patchcord } from "../models/patchcords";
+import { Patchcord, PatchcordNewForm } from "../models/patchcords";
 
 @Injectable()
 export class PatchcordsService {
@@ -14,5 +14,9 @@ export class PatchcordsService {
     getAll() {
         return this.http.get<Patchcord[]>(this.url)
                     .pipe(retry(2))
+    }
+
+    add(patchcord: PatchcordNewForm) {
+        return this.http.post<Patchcord>(this.url, patchcord)
     }
 }

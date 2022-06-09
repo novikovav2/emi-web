@@ -34,9 +34,7 @@ export class PatchcordsIndexComponent implements OnInit {
             .subscribe({
                 next: (data) => {
                     this.patchcords = data
-                    this.spinnerShow = false
-                    console.log(this.patchcords);
-                    
+                    this.spinnerShow = false                    
                 },
                 error: (error) => {
                     this.toastr.error(error)

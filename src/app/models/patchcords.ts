@@ -51,3 +51,8 @@ export interface Patchcord {
         }
     }
 }
+
+export interface PatchcordNewForm {
+    startId: string,
+    endId: string
+}

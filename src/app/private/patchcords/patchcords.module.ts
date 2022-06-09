@@ -5,16 +5,19 @@ import { RouterModule } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { SharedModule } from "../shared.module";
 import { PatchcordsIndexComponent } from "./index/patchcords-index.component";
+import { PatchcordsNewComponent } from "./new/patchcords-new.component";
 import { PatchcordsComponent } from "./patchcords.component";
 
 @NgModule({
     declarations: [
         PatchcordsComponent,
-        PatchcordsIndexComponent
+        PatchcordsIndexComponent,
+        PatchcordsNewComponent
     ],
     exports: [
         PatchcordsComponent,
-        PatchcordsIndexComponent
+        PatchcordsIndexComponent,
+        PatchcordsNewComponent
     ],
     imports: [
         CommonModule,
