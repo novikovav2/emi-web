@@ -23,4 +23,8 @@ export class PatchcordsService {
     add(patchcord: PatchcordNewForm) {
         return this.http.post<Patchcord>(this.url, patchcord)
     }
+
+    delete(id: string) {
+        return this.http.delete(this.url + '/' + id)
+    }
 }

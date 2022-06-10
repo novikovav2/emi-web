@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { DEVICES_URL, PATCHCORDS_URL, PATCHPANELS_URL, RACKS_URL } from "src/app/consts";
+import { DEVICES_URL, PATCHCORDS_URL, PATCHCORD_DELETED, PATCHPANELS_URL, RACKS_URL } from "src/app/consts";
 import { Patchcord, PATCHCORD_DEFAULT } from "src/app/models/patchcords";
 import { BreadcrumbService } from "src/app/services/breadcrumb.service";
 import { PatchcordsService } from "src/app/services/patchcords.service";
@@ -46,6 +46,13 @@ export class PatchcordsShowComponent implements OnInit {
     }
 
     onDelete() {
-
+        this.patchcordService.delete(this.patchcord.id)
+            .subscribe({
+                next: () => {
+                    this.toastr.success(PATCHCORD_DELETED)
+                    this.router.navigate([PATCHCORDS_URL])
+                },
+                error: (error) => { this.toastr.error(error) }
+            })
     }
 }
