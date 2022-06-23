@@ -5,7 +5,7 @@ import {PrivateComponent} from "./private/private.component";
 import {LoginComponent} from "./public/login/login.component";
 import {
   AUTH_LOGIN_PAGE,
-  AUTH_PAGE, DEVICES,
+  AUTH_PAGE, CABLES, DEVICES,
   EDIT,
   LOGIN_PAGE,
   NEW,
@@ -36,6 +36,7 @@ import { DevicesEditComponent } from './private/devices/edit/devices-edit.compon
 import { PatchcordsIndexComponent } from './private/patchcords/index/patchcords-index.component';
 import { PatchcordsNewComponent } from './private/patchcords/new/patchcords-new.component';
 import { PatchcordsShowComponent } from './private/patchcords/show/patchcords-show.component';
+import { CablesIndexComponent } from './private/cables/index/cables-index.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -90,6 +91,12 @@ const routes: Routes = [
           { path: ROOT, component: PatchcordsIndexComponent },
           { path: NEW, component: PatchcordsNewComponent },
           { path: ':id', component: PatchcordsShowComponent }
+        ]
+      },
+      {
+        path: CABLES,
+        children: [
+          { path: ROOT, component: CablesIndexComponent }
         ]
       }
     ]

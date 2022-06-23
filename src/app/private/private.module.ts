@@ -30,6 +30,8 @@ import {DevicesModule} from "./devices/devices.module";
 import {DevicesService} from "../services/devices.service";
 import { PatchcordsModule } from "./patchcords/patchcords.module";
 import { PatchcordsService } from "../services/patchcords.service";
+import { CablesModule } from "./cables/cables.module";
+import { CablesService } from "../services/cables.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { PatchcordsService } from "../services/patchcords.service";
     PatchpanelsModule,
     SharedModule,
     DevicesModule,
-    PatchcordsModule
+    PatchcordsModule,
+    CablesModule
   ],
   exports: [
     PrivateComponent,
@@ -86,7 +89,8 @@ import { PatchcordsService } from "../services/patchcords.service";
     RacksService,
     PatchpanelsService,
     DevicesService,
-    PatchcordsService
+    PatchcordsService,
+    CablesService
   ]
 })
 export class PrivateModule {

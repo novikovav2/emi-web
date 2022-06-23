@@ -43,7 +43,8 @@
                                 </a>
                             </td>
                             <td>
-                                <a [routerLink]="item.start.owner.type === 'Patchpanel' ? [patchpanels_url, item.start.owner.id] : [devices_url, item.start.owner.id]">
+                                <a [routerLink]="item.start.owner.type === 'Patchpanel' ? 
+                                                    [patchpanels_url, item.start.owner.id] : [devices_url, item.start.owner.id]">
                                     {{ item.start.owner.name }}
                                 </a>
                             </td>

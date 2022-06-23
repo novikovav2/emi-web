@@ -13,6 +13,7 @@ export const PATCHPANELS = 'patchpanels'
 export const INTERFACES = 'interfaces'
 export const DEVICES = 'devices'
 export const PATCHCORDS = 'patchcords'
+export const CABLES = 'cables'
 
 export const ROOMS_URL = '/' + ROOMS
 export const RACKS_URL = '/' + RACKS
@@ -20,6 +21,7 @@ export const PATCHPANELS_URL = '/' + PATCHPANELS
 export const INTERFACES_URL = '/' + INTERFACES
 export const DEVICES_URL = '/' + DEVICES
 export const PATCHCORDS_URL = '/' + PATCHCORDS
+export const CABLES_URL = '/' + CABLES
 
 export const NEW = 'new'
 export const EDIT = 'edit'
