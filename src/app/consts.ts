@@ -37,3 +37,4 @@ export const PATCHCORD_CREATED = 'Патчкорд создан'
 export const PATCHCORD_DELETED = 'Патчкорд удален'
 
 export const CABLE_CREATED = 'Кабель СКС создан'
+export const CABLE_DELETED = 'Кабель СКС удален'

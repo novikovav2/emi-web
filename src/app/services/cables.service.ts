@@ -16,7 +16,15 @@ export class CablesService {
                     .pipe(retry(2))
     }
 
+    getOne(id: string) {
+        return this.http.get<Cable>(this.url + '/' + id)
+    }
+
     add(cable: CableNewForm) {
         return this.http.post<Cable>(this.url, cable)
+    }
+
+    delete(id: string) {
+        return this.http.delete(this.url + '/' + id)
     }
 }

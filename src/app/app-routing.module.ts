@@ -38,6 +38,7 @@ import { PatchcordsNewComponent } from './private/patchcords/new/patchcords-new.
 import { PatchcordsShowComponent } from './private/patchcords/show/patchcords-show.component';
 import { CablesIndexComponent } from './private/cables/index/cables-index.component';
 import { CablesNewComponent } from './private/cables/new/cables-new.component';
+import { CablesShowComponent } from './private/cables/show/cables-show.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -98,7 +99,8 @@ const routes: Routes = [
         path: CABLES,
         children: [
           { path: ROOT, component: CablesIndexComponent },
-          { path: NEW, component: CablesNewComponent }
+          { path: NEW, component: CablesNewComponent },
+          { path: ':id', component: CablesShowComponent }
         ]
       }
     ]

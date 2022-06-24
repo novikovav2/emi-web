@@ -1,0 +1,88 @@
+<app-header title="Детали СКС"></app-header>
+<div class="row">
+    <div class="w-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    {{ cable.type | humanView }}
+                </h3>
+                <div class="card-actions">
+                    <a class="link color-red" (click)="onDelete()">
+                        Удвлить
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row w-100">
+                    <div class="w-33">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Начало</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Стойка</td>
+                                    <td>
+                                        <a [routerLink]="[racks_url, cable.start.rack.id]">
+                                            {{ cable.start.rack.name }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Патчпанель</td>
+                                    <td>
+                                        <a [routerLink]="[patchpanels_url, cable.start.patchpanel.id]">
+                                            {{ cable.start.patchpanel.name }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Интерфейс</td>
+                                    <td>
+                                        {{ cable.start.interface.name }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="w-33"></div>
+                    <div class="w-33">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Конец</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Стойка</td>
+                                    <td>
+                                        <a [routerLink]="[racks_url, cable.end.rack.id]">
+                                            {{ cable.end.rack.name }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Патчпанель</td>
+                                    <td>
+                                        <a [routerLink]="[patchpanels_url, cable.end.patchpanel.id]">
+                                            {{ cable.end.patchpanel.name }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Интерфейс</td>
+                                    <td>
+                                        {{ cable.end.interface.name }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
