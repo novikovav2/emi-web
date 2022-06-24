@@ -35,3 +35,5 @@ export const INTERFACE_DELETED = 'Интерфейс удален'
 export const DEVICE_CREATED = 'Оборудование добавлено'
 export const PATCHCORD_CREATED = 'Патчкорд создан'
 export const PATCHCORD_DELETED = 'Патчкорд удален'
+
+export const CABLE_CREATED = 'Кабель СКС создан'

@@ -6,15 +6,18 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { SharedModule } from "../shared.module";
 import { CablesComponent } from "./cables.component";
 import { CablesIndexComponent } from "./index/cables-index.component";
+import { CablesNewComponent } from "./new/cables-new.component";
 
 @NgModule({
     declarations: [
         CablesComponent,
-        CablesIndexComponent
+        CablesIndexComponent,
+        CablesNewComponent
     ],
     exports: [
         CablesComponent,
-        CablesIndexComponent
+        CablesIndexComponent,
+        CablesNewComponent
     ],
     imports: [
         CommonModule,

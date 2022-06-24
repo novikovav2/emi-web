@@ -34,3 +34,43 @@ export interface Cable {
         }
     }
 }
+
+export interface CableNewForm {
+    startId: string,
+    endId: string
+}
+
+export const CABLE_DEFAULT: Cable = {
+    id: '',
+    type: 'COPPER',
+    start: {
+        rack: {
+            id: '',
+            name: ''
+        },
+        patchpanel: {
+            id: '',
+            name: ''
+        },
+        interface: {
+            id: '',
+            name: '',
+            type: ''
+        }
+    },
+    end: {
+        rack: {
+            id: '',
+            name: ''
+        },
+        patchpanel: {
+            id: '',
+            name: ''
+        },
+        interface: {
+            id: '',
+            name: '',
+            type: ''
+        }
+    }
+}
