@@ -14,6 +14,7 @@ export const INTERFACES = 'interfaces'
 export const DEVICES = 'devices'
 export const PATCHCORDS = 'patchcords'
 export const CABLES = 'cables'
+export const LOGICAL_LINKS = 'logical-links'
 
 export const ROOMS_URL = '/' + ROOMS
 export const RACKS_URL = '/' + RACKS
@@ -22,6 +23,7 @@ export const INTERFACES_URL = '/' + INTERFACES
 export const DEVICES_URL = '/' + DEVICES
 export const PATCHCORDS_URL = '/' + PATCHCORDS
 export const CABLES_URL = '/' + CABLES
+export const LOGICAL_LINKS_URL = '/' + LOGICAL_LINKS
 
 export const NEW = 'new'
 export const EDIT = 'edit'
@@ -38,3 +40,6 @@ export const PATCHCORD_DELETED = 'Патчкорд удален'
 
 export const CABLE_CREATED = 'Кабель СКС создан'
 export const CABLE_DELETED = 'Кабель СКС удален'
+
+export const LOGICAL_LINK_CREATED = 'Логическая связь создана'
+export const LOGICAL_LINK_DELETED = 'Логическая связь удалена'

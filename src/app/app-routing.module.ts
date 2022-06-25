@@ -7,6 +7,7 @@ import {
   AUTH_LOGIN_PAGE,
   AUTH_PAGE, CABLES, DEVICES,
   EDIT,
+  LOGICAL_LINKS,
   LOGIN_PAGE,
   NEW,
   PATCHCORDS,
@@ -39,6 +40,7 @@ import { PatchcordsShowComponent } from './private/patchcords/show/patchcords-sh
 import { CablesIndexComponent } from './private/cables/index/cables-index.component';
 import { CablesNewComponent } from './private/cables/new/cables-new.component';
 import { CablesShowComponent } from './private/cables/show/cables-show.component';
+import { LogicalLinksIndexComponent } from './private/logical-links/index/logical-links-index.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -101,6 +103,12 @@ const routes: Routes = [
           { path: ROOT, component: CablesIndexComponent },
           { path: NEW, component: CablesNewComponent },
           { path: ':id', component: CablesShowComponent }
+        ]
+      },
+      {
+        path: LOGICAL_LINKS,
+        children: [
+          { path: ROOT, component: LogicalLinksIndexComponent }
         ]
       }
     ]

@@ -32,6 +32,7 @@ import { PatchcordsModule } from "./patchcords/patchcords.module";
 import { PatchcordsService } from "../services/patchcords.service";
 import { CablesModule } from "./cables/cables.module";
 import { CablesService } from "../services/cables.service";
+import { LogicalLinksModule } from "./logical-links/logical-links.module";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { CablesService } from "../services/cables.service";
     SharedModule,
     DevicesModule,
     PatchcordsModule,
-    CablesModule
+    CablesModule,
+    LogicalLinksModule
   ],
   exports: [
     PrivateComponent,
