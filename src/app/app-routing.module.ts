@@ -41,6 +41,7 @@ import { CablesIndexComponent } from './private/cables/index/cables-index.compon
 import { CablesNewComponent } from './private/cables/new/cables-new.component';
 import { CablesShowComponent } from './private/cables/show/cables-show.component';
 import { LogicalLinksIndexComponent } from './private/logical-links/index/logical-links-index.component';
+import { LogicalLinksNewComponent } from './private/logical-links/new/logical-links-new.component';
 
 const routes: Routes = [
   { path: AUTH_PAGE,
@@ -108,7 +109,8 @@ const routes: Routes = [
       {
         path: LOGICAL_LINKS,
         children: [
-          { path: ROOT, component: LogicalLinksIndexComponent }
+          { path: ROOT, component: LogicalLinksIndexComponent },
+          { path: NEW, component: LogicalLinksNewComponent }
         ]
       }
     ]

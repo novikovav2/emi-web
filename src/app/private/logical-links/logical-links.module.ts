@@ -6,15 +6,18 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { SharedModule } from "../shared.module";
 import { LogicalLinksIndexComponent } from "./index/logical-links-index.component";
 import { LogicalLinksComponent } from "./logical-links.component";
+import { LogicalLinksNewComponent } from "./new/logical-links-new.component";
 
 @NgModule({
     declarations: [
         LogicalLinksComponent,
-        LogicalLinksIndexComponent
+        LogicalLinksIndexComponent,
+        LogicalLinksNewComponent
     ],
     exports: [
         LogicalLinksComponent,
-        LogicalLinksIndexComponent
+        LogicalLinksIndexComponent,
+        LogicalLinksNewComponent
     ],
     imports: [
         CommonModule,

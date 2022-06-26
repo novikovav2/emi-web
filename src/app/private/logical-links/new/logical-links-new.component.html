@@ -1,0 +1,115 @@
+<app-header title="Новая логическая связь"></app-header>
+<div class="row">
+    <div class="w-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Параметры новой логической связи
+                </h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" class="form">
+                    <div class="form-control w-100">
+                        <div class="w-50">
+                            <div class="form-control">
+                                <label class="form-label">Помещение (начало)</label>
+                                <select class="form-input" (change)="onChangeRoom('start')" formControlName="roomStart">
+                                    <option [ngValue]="null">Выберите помещение</option>
+                                    <option *ngFor="let room of rooms" [ngValue]="room.id">
+                                        {{ room.title }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Стойка (начало)</label>
+                                <select class="form-input" (change)="onChangeRack('start')" formControlName="rackStart">
+                                    <option [ngValue]="null">Выберите стойку</option>
+                                    <option *ngFor="let rack of racksStart" [ngValue]="rack.id">
+                                        {{ rack.name }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Оборудование (начало)</label>
+                                <select class="form-input" (change)="onChangeDevice('start')" formControlName="deviceStart">
+                                    <option [ngValue]="null">Выберите оборудование</option>
+                                    <option *ngFor="let device of devicesStart" [ngValue]="device.id">
+                                        {{ device.name }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Интерфейс (начало)</label>
+                                <select class="form-input" formControlName="interfaceStart">
+                                    <option [ngValue]="null">Выберите интерфейс</option>
+                                    <option *ngFor="let interface of interfacesStart" [ngValue]="interface.id">
+                                        {{ interface.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            <div class="form-control">
+                                <label class="form-label">Помещение (конец)</label>
+                                <select class="form-input" (change)="onChangeRoom('end')" formControlName="roomEnd">
+                                    <option [ngValue]="null">Выберите помещение</option>
+                                    <option *ngFor="let room of rooms" [ngValue]="room.id">
+                                        {{ room.title }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Стойка (конец)</label>
+                                <select class="form-input" (change)="onChangeRack('end')" formControlName="rackEnd">
+                                    <option [ngValue]="null">Выберите стойку</option>
+                                    <option *ngFor="let rack of racksEnd" [ngValue]="rack.id">
+                                        {{ rack.name }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Оборудование (конец)</label>
+                                <select class="form-input" (change)="onChangeDevice('end')" formControlName="deviceEnd">
+                                    <option [ngValue]="null">Выберите оборудование</option>
+                                    <option *ngFor="let device of devicesEnd" [ngValue]="device.id">
+                                        {{ device.name }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="form-label">Интерфейс (конец)</label>
+                                <select class="form-input" formControlName="interfaceEnd">
+                                    <option [ngValue]="null">Выберите интерфейс</option>
+                                    <option *ngFor="let interface of interfacesEnd" [ngValue]="interface.id">
+                                        {{ interface.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p *ngIf="form.errors?.['interfacesMatched'] && (form.touched || form.dirty)" class="card-spinner color-red">
+                        Интерфейсы не могут совпадать
+                    </p>
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="form-actions">
+                    <button class="button form-submit" [disabled]="!form.valid" (click)="onSubmit()">
+                        Сохранить
+                    </button>
+                    <button class="button form-reset" (click)="onReset()">
+                        Отмена
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
