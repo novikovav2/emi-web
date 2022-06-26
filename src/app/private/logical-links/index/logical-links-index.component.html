@@ -1,1 +1,26 @@
-LOGICAL LINKS INDEX
+<app-header title="Логические связи"></app-header>
+<div class="row">
+    <div class="w-100">
+        <div class="card">
+            <div class="card-header">  
+                <h3 class="card-title">
+                    Существующие логические связи
+                </h3>
+                <div class="card-actions">
+                    <a [routerLink]="[new_url]">
+                        <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <fa-icon [icon]="spinnericon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+                <p class="card-spinner" *ngIf="!spinnerShow && logicalLinks.length === 0">
+                    Нет логических связей
+                </p>
+                <table class="table" *ngIf="!spinnerShow && logicalLinks.length > 0">
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
