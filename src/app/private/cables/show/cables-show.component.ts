@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { CABLES_URL, CABLE_DELETED, PATCHPANELS_URL, RACKS_URL } from "src/app/consts";
+import { CABLES_URL, CABLE_DELETED, DELETE_TXT, PATCHPANELS_URL, RACKS_URL } from "src/app/consts";
 import { Cable, CABLE_DEFAULT } from "src/app/models/cable";
 import { BreadcrumbService } from "src/app/services/breadcrumb.service";
 import { CablesService } from "src/app/services/cables.service";
@@ -15,6 +15,7 @@ export class CablesShowComponent implements OnInit {
     cable: Cable = CABLE_DEFAULT
     racks_url = RACKS_URL
     patchpanels_url = PATCHPANELS_URL
+    delete_txt = DELETE_TXT
 
     constructor(private breadcrumbs: BreadcrumbService,
                 private cableService: CablesService,

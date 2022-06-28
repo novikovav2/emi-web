@@ -1,10 +1,16 @@
-<app-header title="Детали СКС"></app-header>
+<app-header title="Детали логической связи"></app-header>
 <div class="row">
     <div class="w-100">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
-                    {{ cable.type | humanView }}
+                    {{ logicalLink.start.rack.name }}.
+                    {{ logicalLink.start.device.name }}.
+                    {{ logicalLink.start.interface.name }}
+                    ->
+                    {{ logicalLink.end.rack.name }}.
+                    {{ logicalLink.end.device.name }}.
+                    {{ logicalLink.end.interface.name }}
                 </h3>
                 <div class="card-actions">
                     <a class="link color-red" (click)="onDelete()">
@@ -25,23 +31,23 @@
                                 <tr>
                                     <td>Стойка</td>
                                     <td>
-                                        <a [routerLink]="[racks_url, cable.start.rack.id]">
-                                            {{ cable.start.rack.name }}
+                                        <a [routerLink]="[racks_url, logicalLink.start.rack.id]">
+                                            {{ logicalLink.start.rack.name }}
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Патчпанель</td>
+                                    <td>Оборудование</td>
                                     <td>
-                                        <a [routerLink]="[patchpanels_url, cable.start.patchpanel.id]">
-                                            {{ cable.start.patchpanel.name }}
+                                        <a [routerLink]="[devices_url, logicalLink.start.device.id]">
+                                            {{ logicalLink.start.device.name }}
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Интерфейс</td>
                                     <td>
-                                        {{ cable.start.interface.name }}
+                                        {{ logicalLink.start.interface.name }}
                                     </td>
                                 </tr>
                             </tbody>
@@ -59,23 +65,23 @@
                                 <tr>
                                     <td>Стойка</td>
                                     <td>
-                                        <a [routerLink]="[racks_url, cable.end.rack.id]">
-                                            {{ cable.end.rack.name }}
+                                        <a [routerLink]="[racks_url, logicalLink.end.rack.id]">
+                                            {{ logicalLink.end.rack.name }}
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Патчпанель</td>
+                                    <td>Оборудование</td>
                                     <td>
-                                        <a [routerLink]="[patchpanels_url, cable.end.patchpanel.id]">
-                                            {{ cable.end.patchpanel.name }}
+                                        <a [routerLink]="[devices_url, logicalLink.end.device.id]">
+                                            {{ logicalLink.end.device.name }}
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Интерфейс</td>
                                     <td>
-                                        {{ cable.end.interface.name }}
+                                        {{ logicalLink.end.interface.name }}
                                     </td>
                                 </tr>
                             </tbody>

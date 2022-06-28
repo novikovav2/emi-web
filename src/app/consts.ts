@@ -28,6 +28,8 @@ export const LOGICAL_LINKS_URL = '/' + LOGICAL_LINKS
 export const NEW = 'new'
 export const EDIT = 'edit'
 
+export const DELETE_TXT = 'Удалить'
+
 export const ROOM_CREATED = 'Помещение создано'
 export const UPDATED = 'Изменения сохранены'
 export const DELETED = 'Объект удален'
