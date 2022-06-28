@@ -18,7 +18,54 @@
                     Нет логических связей
                 </p>
                 <table class="table" *ngIf="!spinnerShow && logicalLinks.length > 0">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Начало стойка</td>
+                            <td>Начало оборудование</td>
+                            <td>Начало порт</td>
+                            <td>Конец стойка</td>
+                            <td>Конец оборудование</td>
+                            <td>Конец порт</td>
+                            <td>Тип</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of logicalLinks">
+                            <td>
+                                <a [routerLink]="[item.id]">
+                                    <fa-icon [icon]="viewIcon" size="1x" class="color-red"></fa-icon>
+                                </a>
+                            </td>
+                            <td>
+                                <a [routerLink]="[racks_url, item.start.rack.id]">
+                                    {{ item.start.rack.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a [routerLink]="[devices_url, item.start.device.id]">
+                                    {{ item.start.device.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ item.start.interface.name }}
+                            </td>
 
+                            <td>
+                                <a [routerLink]="[racks_url, item.end.rack.id]">
+                                    {{ item.end.rack.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a [routerLink]="[devices_url, item.end.device.id]">
+                                    {{ item.end.device.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ item.end.interface.name }}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
