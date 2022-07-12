@@ -1,114 +1,103 @@
 <app-header title="Новый кабель СКС"></app-header>
-<div class="row">
-    <div class="w-100">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Параметры нового кабеля
-                </h3>
+
+<app-card title="Параметры нового кабеля">
+    <form [formGroup]="form" class="form">
+        <div class="form-control w-100">
+            <div class="w-50">
+                <div class="form-control">
+                    <label class="form-label">Помещение (начало)</label>
+                    <select class="form-input" (change)="onChangeRoom('start')" formControlName="roomStart">
+                        <option [ngValue]="null">Выберите помещение</option>
+                        <option *ngFor="let room of rooms" [ngValue]="room.id">
+                            {{ room.title }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label class="form-label">Стойка (начало)</label>
+                    <select class="form-input" (change)="onChangeRack('start')" formControlName="rackStart">
+                        <option [ngValue]="null">Выберите стойку</option>
+                        <option *ngFor="let rack of racksStart" [ngValue]="rack.id">
+                            {{ rack.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label class="form-label">Патчпанель (начало)</label>
+                    <select class="form-input" (change)="onChangePatchpanel('start')" formControlName="patchpanelStart">
+                        <option [ngValue]="null">Выберите патчпанель</option>
+                        <option *ngFor="let patchpanel of patchpanelsStart" [ngValue]="patchpanel.id">
+                            {{ patchpanel.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label class="form-label">Интерфейс (начало)</label>
+                    <select class="form-input" formControlName="interfaceStart">
+                        <option [ngValue]="null">Выберите интерфейс</option>
+                        <option *ngFor="let interface of interfacesStart" [ngValue]="interface.id">
+                            {{ interface.name }}
+                        </option>
+                    </select>
+                </div>
             </div>
-            <div class="card-body">
-                <form [formGroup]="form" class="form">
-                    <div class="form-control w-100">
-                        <div class="w-50">
-                            <div class="form-control">
-                                <label class="form-label">Помещение (начало)</label>
-                                <select class="form-input" (change)="onChangeRoom('start')" formControlName="roomStart">
-                                    <option [ngValue]="null">Выберите помещение</option>
-                                    <option *ngFor="let room of rooms" [ngValue]="room.id">
-                                        {{ room.title }}
-                                    </option>
-                                </select>
-                            </div>
+            <div class="w-50">
+                <div class="form-control">
+                    <label class="form-label">Помещение (конец)</label>
+                    <select class="form-input" (change)="onChangeRoom('end')" formControlName="roomEnd">
+                        <option [ngValue]="null">Выберите помещение</option>
+                        <option *ngFor="let room of rooms" [ngValue]="room.id">
+                            {{ room.title }}
+                        </option>
+                    </select>
+                </div>
 
-                            <div class="form-control">
-                                <label class="form-label">Стойка (начало)</label>
-                                <select class="form-input" (change)="onChangeRack('start')" formControlName="rackStart">
-                                    <option [ngValue]="null">Выберите стойку</option>
-                                    <option *ngFor="let rack of racksStart" [ngValue]="rack.id">
-                                        {{ rack.name }}
-                                    </option>
-                                </select>
-                            </div>
+                <div class="form-control">
+                    <label class="form-label">Стойка (конец)</label>
+                    <select class="form-input" (change)="onChangeRack('end')" formControlName="rackEnd">
+                        <option [ngValue]="null">Выберите стойку</option>
+                        <option *ngFor="let rack of racksEnd" [ngValue]="rack.id">
+                            {{ rack.name }}
+                        </option>
+                    </select>
+                </div>
 
-                            <div class="form-control">
-                                <label class="form-label">Патчпанель (начало)</label>
-                                <select class="form-input" (change)="onChangePatchpanel('start')" formControlName="patchpanelStart">
-                                    <option [ngValue]="null">Выберите патчпанель</option>
-                                    <option *ngFor="let patchpanel of patchpanelsStart" [ngValue]="patchpanel.id">
-                                        {{ patchpanel.name }}
-                                    </option>
-                                </select>
-                            </div>
+                <div class="form-control">
+                    <label class="form-label">Патчпанель (конец)</label>
+                    <select class="form-input" (change)="onChangePatchpanel('end')" formControlName="patchpanelEnd">
+                        <option [ngValue]="null">Выберите патчпанель</option>
+                        <option *ngFor="let patchpanel of patchpanelsEnd" [ngValue]="patchpanel.id">
+                            {{ patchpanel.name }}
+                        </option>
+                    </select>
+                </div>
 
-                            <div class="form-control">
-                                <label class="form-label">Интерфейс (начало)</label>
-                                <select class="form-input" formControlName="interfaceStart">
-                                    <option [ngValue]="null">Выберите интерфейс</option>
-                                    <option *ngFor="let interface of interfacesStart" [ngValue]="interface.id">
-                                        {{ interface.name }}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="w-50">
-                            <div class="form-control">
-                                <label class="form-label">Помещение (конец)</label>
-                                <select class="form-input" (change)="onChangeRoom('end')" formControlName="roomEnd">
-                                    <option [ngValue]="null">Выберите помещение</option>
-                                    <option *ngFor="let room of rooms" [ngValue]="room.id">
-                                        {{ room.title }}
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-control">
-                                <label class="form-label">Стойка (конец)</label>
-                                <select class="form-input" (change)="onChangeRack('end')" formControlName="rackEnd">
-                                    <option [ngValue]="null">Выберите стойку</option>
-                                    <option *ngFor="let rack of racksEnd" [ngValue]="rack.id">
-                                        {{ rack.name }}
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-control">
-                                <label class="form-label">Патчпанель (конец)</label>
-                                <select class="form-input" (change)="onChangePatchpanel('end')" formControlName="patchpanelEnd">
-                                    <option [ngValue]="null">Выберите патчпанель</option>
-                                    <option *ngFor="let patchpanel of patchpanelsEnd" [ngValue]="patchpanel.id">
-                                        {{ patchpanel.name }}
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-control">
-                                <label class="form-label">Интерфейс (конец)</label>
-                                <select class="form-input" formControlName="interfaceEnd">
-                                    <option [ngValue]="null">Выберите интерфейс</option>
-                                    <option *ngFor="let interface of interfacesEnd" [ngValue]="interface.id">
-                                        {{ interface.name }}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p *ngIf="form.errors?.['interfacesMatched'] && (form.touched || form.dirty)" class="card-spinner color-red">
-                        Интерфейсы не могут совпадать
-                    </p>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="form-actions">
-                    <button class="button form-submit" [disabled]="!form.valid" (click)="onSubmit()">
-                        Сохранить
-                    </button>
-                    <button class="button form-reset" (click)="onReset()">
-                        Отмена
-                    </button>
+                <div class="form-control">
+                    <label class="form-label">Интерфейс (конец)</label>
+                    <select class="form-input" formControlName="interfaceEnd">
+                        <option [ngValue]="null">Выберите интерфейс</option>
+                        <option *ngFor="let interface of interfacesEnd" [ngValue]="interface.id">
+                            {{ interface.name }}
+                        </option>
+                    </select>
                 </div>
             </div>
         </div>
+
+        <p *ngIf="form.errors?.['interfacesMatched'] && (form.touched || form.dirty)" class="card-spinner color-red">
+            Интерфейсы не могут совпадать
+        </p>
+    </form>
+
+    <div class="form-actions" footer>
+        <button class="button form-submit" [disabled]="!form.valid" (click)="onSubmit()">
+            Сохранить
+        </button>
+        <button class="button form-reset" (click)="onReset()">
+            Отмена
+        </button>
     </div>
-</div>
+</app-card>

@@ -1,75 +1,64 @@
 <app-header title="СКС"></app-header>
-<div class="row">
-    <div class="w-100">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Существующая СКС
-                </h3>
-                <div class="card-actions">
-                    <a [routerLink]="[new_url]">
-                        <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+
+<app-card title="Существующая СКС">
+    <a [routerLink]="[new_url]" actions>
+        <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+    </a>
+
+    <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+    <p class="card-spinner" *ngIf="!spinnerShow && cables.length === 0">
+        Нет линий СКС
+    </p>
+    <table class="table" *ngIf="!spinnerShow && cables.length > 0">
+        <thead>
+            <tr>
+                <td></td>
+                <td>Начало стойка</td>
+                <td>Начало патчпанель</td>
+                <td>Начало порт</td>
+                <td>Конец стойка</td>
+                <td>Конец патчпанель</td>
+                <td>Конец порт</td>
+                <td>Тип</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cables">
+                <td>
+                    <a [routerLink]="[item.id]">
+                        <fa-icon [icon]="viewIcon" size="1x" class="color-red"></fa-icon>
                     </a>
-                </div>
-            </div>
-            <div class="card-body">
-                <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
-                <p class="card-spinner" *ngIf="!spinnerShow && cables.length === 0">
-                    Нет линий СКС
-                </p>
-                <table class="table" *ngIf="!spinnerShow && cables.length > 0">
-                    <thead>
-                        <tr>
-                            <td></td>
-                            <td>Начало стойка</td>
-                            <td>Начало патчпанель</td>
-                            <td>Начало порт</td>
-                            <td>Конец стойка</td>
-                            <td>Конец патчпанель</td>
-                            <td>Конец порт</td>
-                            <td>Тип</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of cables">
-                            <td>
-                                <a [routerLink]="[item.id]">
-                                    <fa-icon [icon]="viewIcon" size="1x" class="color-red"></fa-icon>
-                                </a>
-                            </td>
-                            <td>
-                                <a [routerLink]="[racks_url, item.start.rack.id]">
-                                    {{ item.start.rack.name }}
-                                </a>
-                            </td>
-                            <td>
-                                <a [routerLink]="[patchpanels_url, item.start.patchpanel.id]">
-                                    {{ item.start.patchpanel.name }}
-                                </a>
-                            </td>
-                            <td>
-                                {{ item.start.interface.name }}
-                            </td>
-                            <td>
-                                <a [routerLink]="[racks_url, item.end.rack.id]">
-                                    {{ item.end.rack.name }}
-                                </a>
-                            </td>
-                            <td>
-                                <a [routerLink]="[patchpanels_url, item.end.patchpanel.id]">
-                                    {{ item.end.patchpanel.name }}
-                                </a>
-                            </td>
-                            <td>
-                                {{ item.end.interface.name }}
-                            </td>
-                            <td>
-                                {{ item.type | humanView }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+                </td>
+                <td>
+                    <a [routerLink]="[racks_url, item.start.rack.id]">
+                        {{ item.start.rack.name }}
+                    </a>
+                </td>
+                <td>
+                    <a [routerLink]="[patchpanels_url, item.start.patchpanel.id]">
+                        {{ item.start.patchpanel.name }}
+                    </a>
+                </td>
+                <td>
+                    {{ item.start.interface.name }}
+                </td>
+                <td>
+                    <a [routerLink]="[racks_url, item.end.rack.id]">
+                        {{ item.end.rack.name }}
+                    </a>
+                </td>
+                <td>
+                    <a [routerLink]="[patchpanels_url, item.end.patchpanel.id]">
+                        {{ item.end.patchpanel.name }}
+                    </a>
+                </td>
+                <td>
+                    {{ item.end.interface.name }}
+                </td>
+                <td>
+                    {{ item.type | humanView }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</app-card>
