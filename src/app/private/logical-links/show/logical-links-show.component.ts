@@ -16,6 +16,7 @@ export class LogicalLinksShowComponent implements OnInit{
     racks_url = RACKS_URL
     devices_url = DEVICES_URL
     delete_txt = DELETE_TXT
+    title: string = ''
 
     constructor(private breadcrumbs: BreadcrumbService,
                 private logicalLinkService: LogicalLinksService,
@@ -38,7 +39,16 @@ export class LogicalLinksShowComponent implements OnInit{
     getData(id: string) {
         this.logicalLinkService.getOne(id)
             .subscribe({
-                next: (data) => { this.logicalLink = data },
+                next: (data) => { 
+                    this.logicalLink = data 
+                    this.title = this.logicalLink.start.rack.name + '.'
+                                    + this.logicalLink.start.device.name + '.'
+                                    + this.logicalLink.start.interface.name 
+                                    + ' -> '
+                                    + this.logicalLink.end.rack.name + '.'
+                                    + this.logicalLink.end.device.name + '.'
+                                    + this.logicalLink.end.interface.name 
+                },
                 error: (error) => { this.toastr.error(error) }
             })
     }

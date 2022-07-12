@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {HeaderComponent} from "./header/header.component";
 import {RouterModule} from "@angular/router";
 import {TextTransformPipe} from "../services/text-transform.pipe"
+import { CardComponent } from "./shared/card/card.component";
 
 @NgModule({
   imports: [
@@ -11,11 +12,13 @@ import {TextTransformPipe} from "../services/text-transform.pipe"
   ],
   declarations: [
     HeaderComponent,
-    TextTransformPipe
+    TextTransformPipe,
+    CardComponent
   ],
   exports: [
     HeaderComponent,
-    TextTransformPipe
+    TextTransformPipe,
+    CardComponent
   ]
 })
 export class SharedModule {
