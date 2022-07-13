@@ -1,45 +1,34 @@
 <app-header title="Оборудование"></app-header>
-<div class="row">
-  <div class="w-100">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Существующее оборудование
-        </h3>
-        <div class="card-actions">
-          <a [routerLink]="[new_url]">
-            <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+
+<app-card title="Существующее оборудование">
+  <a [routerLink]="[new_url]" actions>
+    <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+  </a>
+
+  <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+  <p class="card-spinner" *ngIf="!spinnerShow && devices.length === 0">
+    Нет оборудования
+  </p>
+  <table class="table" *ngIf="!spinnerShow && devices.length > 0">
+    <thead>
+      <tr>
+        <td>Название</td>
+        <td>Стойка</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices">
+        <td>
+          <a [routerLink]="[device.id]">
+            {{ device.name }}
           </a>
-        </div>
-      </div>
-      <div class="card-body">
-        <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
-        <p class="card-spinner" *ngIf="!spinnerShow && devices.length === 0">
-          Нет оборудования
-        </p>
-        <table class="table" *ngIf="!spinnerShow && devices.length > 0">
-          <thead>
-            <tr>
-              <td>Название</td>
-              <td>Стойка</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let device of devices">
-              <td>
-                <a [routerLink]="[device.id]">
-                  {{ device.name }}
-                </a>
-              </td>
-              <td>
-                <a [routerLink]="[racks_url, device.rack.id]" >
-                  {{ device.rack.name }}
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+        </td>
+        <td>
+          <a [routerLink]="[racks_url, device.rack.id]" >
+            {{ device.rack.name }}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-card>

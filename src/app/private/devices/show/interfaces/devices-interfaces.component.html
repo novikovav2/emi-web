@@ -1,79 +1,67 @@
-<div class="row">
-    <div class="w-100">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Интерфейсы
-                </h3>
-                <div class="card-actions">
-                    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-                        <div class="form-control">
-                            <input class="form-input form-input_inline" formControlName="name" placeholder="Новый интерфейс">
-                            <select class="form-input" formControlName="type">
-                                <option value="OPTIC">Оптика</option>
-                                <option value="COPPER">Медь</option>
-                            </select>
-                            <button class="button form-submit form-submit_inline" type="submit" [disabled]="!form.valid">
-                                Добавить
-                            </button> 
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="card-body">
-                <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
-                <p class="card-spinner" *ngIf="!spinnerShow && interfaces.length === 0">
-                    Нет интерфейсов
-                </p>
-                <table class="table" *ngIf="!spinnerShow && interfaces.length > 0">
-                    <thead>
-                        <tr>
-                            <td (click)="changeOrder('name')">
-                                Название
-                                <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'name' && orderDirection === 'asc' "></fa-icon>
-                                <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'name' && orderDirection === 'desc' "></fa-icon>
-                            </td>
-                            <td (click)="changeOrder('type')">
-                                Тип
-                                <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'type' && orderDirection === 'asc' "></fa-icon>
-                                <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'type' && orderDirection === 'desc' "></fa-icon>
-                            </td>
-                            <td (click)="changeOrder('connected')">
-                                Подключен?
-                                <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
-                                <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
-                            </td>
-                            <td (click)="changeOrder('logicalConnected')">
-                                Логически Подключен?
-                                <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
-                                <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of interfaces">
-                            <td>
-                                {{ item.name }}
-                            </td>
-                            <td>
-                                {{ item.type | humanView }}
-                            </td>
-                            <td>
-                                {{ item.connected | humanView }}
-                            </td>
-                            <td>
-                                {{ item.logicalConnected | humanView }}
-                            </td>
-                            <td>
-                                <a (click)="onDelete(item.id)">
-                                    <fa-icon [icon]="trashIcon"></fa-icon>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<app-card title="Интерфейсы">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" actions>
+        <div class="form-control">
+            <input class="form-input form-input_inline" formControlName="name" placeholder="Новый интерфейс">
+            <select class="form-input" formControlName="type">
+                <option value="OPTIC">Оптика</option>
+                <option value="COPPER">Медь</option>
+            </select>
+            <button class="button form-submit form-submit_inline" type="submit" [disabled]="!form.valid">
+                Добавить
+            </button> 
         </div>
-    </div>
-</div>
+    </form>
+
+    <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
+    <p class="card-spinner" *ngIf="!spinnerShow && interfaces.length === 0">
+        Нет интерфейсов
+    </p>
+    <table class="table" *ngIf="!spinnerShow && interfaces.length > 0">
+        <thead>
+            <tr>
+                <td (click)="changeOrder('name')">
+                    Название
+                    <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'name' && orderDirection === 'asc' "></fa-icon>
+                    <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'name' && orderDirection === 'desc' "></fa-icon>
+                </td>
+                <td (click)="changeOrder('type')">
+                    Тип
+                    <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'type' && orderDirection === 'asc' "></fa-icon>
+                    <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'type' && orderDirection === 'desc' "></fa-icon>
+                </td>
+                <td (click)="changeOrder('connected')">
+                    Подключен?
+                    <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
+                    <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
+                </td>
+                <td (click)="changeOrder('logicalConnected')">
+                    Логически Подключен?
+                    <fa-icon [icon]="sortAscIcon" *ngIf="orderBy === 'connected' && orderDirection === 'asc' "></fa-icon>
+                    <fa-icon [icon]="sortDescIcon" *ngIf="orderBy === 'connected' && orderDirection === 'desc' "></fa-icon>
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of interfaces">
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.type | humanView }}
+                </td>
+                <td>
+                    {{ item.connected | humanView }}
+                </td>
+                <td>
+                    {{ item.logicalConnected | humanView }}
+                </td>
+                <td>
+                    <a (click)="onDelete(item.id)">
+                        <fa-icon [icon]="trashIcon"></fa-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</app-card>
