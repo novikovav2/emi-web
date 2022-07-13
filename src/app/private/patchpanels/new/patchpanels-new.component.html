@@ -1,18 +1,8 @@
 <app-header title="Новая патчпанель"></app-header>
-<div class="row">
-  <div class="w-100">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Параметры новой патчпанели
-        </h3>
-      </div>
-      <div class="card-body">
-        <app-patchpanels-form class="w-100"
-                              (submitEvent)="onSubmit($event)"
-                              (resetEvent)="onReset()">
-        </app-patchpanels-form>
-      </div>
-    </div>
-  </div>
-</div>
+
+<app-card title="Параметры новой патчпанели">
+  <app-patchpanels-form class="w-100"
+                        (submitEvent)="onSubmit($event)"
+                        (resetEvent)="onReset()">
+  </app-patchpanels-form>
+</app-card>
