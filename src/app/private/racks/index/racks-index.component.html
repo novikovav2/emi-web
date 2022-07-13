@@ -1,41 +1,30 @@
 <app-header title="Стойки"></app-header>
-<div class="row">
-  <div class="w-100">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Созданные стойки
-        </h3>
-        <div class="card-actions">
-          <a [routerLink]="[racks_url, new_url]" >
-            <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+
+<app-card title="Созданные стойки">
+  <a [routerLink]="[racks_url, new_url]" actions>
+    <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
+  </a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Название</td>
+        <td>Помещение</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rack of racks">
+        <td>
+          <a [routerLink]="[racks_url, rack.id]">
+            {{ rack.name }}
           </a>
-        </div>
-      </div>
-      <div class="card-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <td>Название</td>
-              <td>Помещение</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let rack of racks">
-              <td>
-                <a [routerLink]="[racks_url, rack.id]">
-                  {{ rack.name }}
-                </a>
-              </td>
-              <td>
-                <a [routerLink]="[rooms_url, rack.room.id]" >
-                  {{ rack.room.title }}
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+        </td>
+        <td>
+          <a [routerLink]="[rooms_url, rack.room.id]" >
+            {{ rack.room.title }}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-card>

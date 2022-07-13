@@ -1,91 +1,66 @@
 <app-header title="Детали стойки" ></app-header>
-<div class="row">
-  <div class="w-100">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          {{ rack.name }}
-        </h3>
-        <div class="card-actions">
-          <a [routerLink]="['/racks', 'edit', rack.id]" class="link">
-            Изменить
-          </a>
-          <a class="link color-red" (click)="onDelete()">
-            Удалить
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="w-50">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Оборудование
-        </h3>
-      </div>
-      <div class="card-body">
-        <fa-icon [icon]="deviceSpinnerIcon" size="2x" [pulse]="true" *ngIf="deviceSpinnerShow"
-          class="card-spinner"></fa-icon>
-        <p class="card-spinner" *ngIf="!deviceSpinnerShow && devices.length === 0">
-          Пусто
-        </p>
-        <table class="table" *ngIf="!deviceSpinnerShow && devices.length > 0">
-          <thead>
-            <tr>
-             <td>Название</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let device of devices">
-              <td>
-                <a [routerLink]="[devices_url, device.id]">
-                  {{ device.name }}
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="w-50">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Патчпанели
-        </h3>
-      </div>
-      <div class="card-body">
-        <fa-icon [icon]="patchpanelSpinnerIcon" size="2x" [pulse]="true" *ngIf="patchpanelSpinnerShow"
-          class="card-spinner"></fa-icon>
-        <p class="card-spinner" *ngIf="!patchpanelSpinnerShow && patchpanels.length === 0">
-          Пусто
-        </p>
-        <table class="table" *ngIf="!patchpanelSpinnerShow && patchpanels.length > 0">
-          <thead>
-            <tr>
-              <td>Название</td>
-              <td>Тип</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of patchpanels">
-              <td>
-                <a [routerLink]="[patchpanels_url, item.id]" >
-                  {{ item.name }}
-                </a>
-              </td>
-              <td>
-                {{ item.type | humanView }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 
+<app-card [title]="rack.name">
+  <a [routerLink]="['/racks', 'edit', rack.id]" class="link" actions>
+    Изменить
+  </a>
+  <a class="link color-red" (click)="onDelete()" actions>
+    Удалить
+  </a>
+</app-card>
+<div class="row">
+  <div class="w-50">
+    <app-card title="Оборудование">
+      <fa-icon [icon]="deviceSpinnerIcon" size="2x" [pulse]="true" *ngIf="deviceSpinnerShow"
+        class="card-spinner"></fa-icon>
+      <p class="card-spinner" *ngIf="!deviceSpinnerShow && devices.length === 0">
+        Пусто
+      </p>
+      <table class="table" *ngIf="!deviceSpinnerShow && devices.length > 0">
+        <thead>
+          <tr>
+            <td>Название</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let device of devices">
+            <td>
+              <a [routerLink]="[devices_url, device.id]">
+                {{ device.name }}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-card>
+  </div>
+  <div class="w-50">
+    <app-card title="Патчпанели">
+      <fa-icon [icon]="patchpanelSpinnerIcon" size="2x" [pulse]="true" *ngIf="patchpanelSpinnerShow"
+        class="card-spinner"></fa-icon>
+      <p class="card-spinner" *ngIf="!patchpanelSpinnerShow && patchpanels.length === 0">
+        Пусто
+      </p>
+      <table class="table" *ngIf="!patchpanelSpinnerShow && patchpanels.length > 0">
+        <thead>
+          <tr>
+            <td>Название</td>
+            <td>Тип</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of patchpanels">
+            <td>
+              <a [routerLink]="[patchpanels_url, item.id]" >
+                {{ item.name }}
+              </a>
+            </td>
+            <td>
+              {{ item.type | humanView }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-card>
+  </div>
+</div>
