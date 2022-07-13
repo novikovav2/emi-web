@@ -4,7 +4,6 @@ import {CommonModule} from "@angular/common";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {RoomsIndexComponent} from "./rooms/index/rooms-index.component";
 import {RacksComponent} from "./racks/racks.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RoomsService} from "../services/rooms.service";
@@ -28,19 +27,13 @@ import { CablesService } from "../services/cables.service";
 import { LogicalLinksModule } from "./logical-links/logical-links.module";
 import { LogicalLinksService } from "../services/logical-links.service";
 import { RoomsModule } from "./rooms/rooms.module";
+import { RacksModule } from "./racks/racks.module";
 
 @NgModule({
   declarations: [
     PrivateComponent,
     SidebarComponent,
-    RoomsIndexComponent,
-    RacksComponent,
-    FooterComponent,
-    RacksIndexComponent,
-    RackShowComponent,
-    RacksNewComponent,
-    RacksFormComponent,
-    RacksEditComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +41,7 @@ import { RoomsModule } from "./rooms/rooms.module";
     FontAwesomeModule,
     ReactiveFormsModule,
     RoomsModule,
+    RacksModule,
     PatchpanelsModule,
     SharedModule,
     DevicesModule,
@@ -58,14 +52,7 @@ import { RoomsModule } from "./rooms/rooms.module";
   exports: [
     PrivateComponent,
     SidebarComponent,
-    RoomsIndexComponent,
-    RacksComponent,
-    FooterComponent,
-    RacksIndexComponent,
-    RackShowComponent,
-    RacksNewComponent,
-    RacksFormComponent,
-    RacksEditComponent
+    FooterComponent
   ],
   providers: [
     RoomsService,

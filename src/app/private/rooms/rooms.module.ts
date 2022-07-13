@@ -7,6 +7,7 @@ import { SharedModule } from "../shared.module";
 import { RoomsEditComponent } from "./edit/rooms-edit.component";
 import { RoomsFormComponent } from "./form/rooms-form.component";
 import { RoomItemComponent } from "./index/room/room-item.component";
+import { RoomsIndexComponent } from "./index/rooms-index.component";
 import { RoomsNewComponent } from "./new/rooms-new.component";
 import { RoomsComponent } from "./rooms.component";
 import { RoomRackItemComponent } from "./show/rack/room-rack-item.component";
@@ -15,6 +16,7 @@ import { RoomsShowComponent } from "./show/rooms-show.component";
 @NgModule({
     declarations: [
         RoomsComponent,
+        RoomsIndexComponent,
         RoomItemComponent,
         RoomsNewComponent,
         RoomsFormComponent,
@@ -29,7 +31,8 @@ import { RoomsShowComponent } from "./show/rooms-show.component";
         RoomsFormComponent,
         RoomsEditComponent,
         RoomsShowComponent,
-        RoomRackItemComponent
+        RoomRackItemComponent,
+        RoomsIndexComponent
     ],
     imports: [
         CommonModule,
