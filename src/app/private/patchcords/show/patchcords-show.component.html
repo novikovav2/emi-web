@@ -1,92 +1,81 @@
 <app-header title="Детали патчкорда"></app-header>
-<div class="row">
-    <div class="w-100">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    {{ patchcord.type | humanView }}
-                </h3>
-                <div class="card-actions">
-                    <a class="link color-red" (click)="onDelete()">
-                        Удалить
-                    </a>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row w-100">
-                    <div class="w-33">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <td>Начало</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Стойка</td>
-                                    <td>
-                                        <a [routerLink]="[racks_url, patchcord.start.rack.id]">
-                                            {{ patchcord.start.rack.name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Оборудование</td>
-                                    <td>
-                                        <a [routerLink]="patchcord.start.owner.type === 'Patchpanel' ? 
-                                                            [patchpanels_url, patchcord.start.owner.id] : 
-                                                            [devices_url, patchcord.start.owner.id]">
-                                            {{ patchcord.start.owner.name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Интерфейс</td>
-                                    <td>
-                                        {{ patchcord.start.interface.name }}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="w-33"></div>
-                    <div class="w-33">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <td>Конец</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Стойка</td>
-                                    <td>
-                                        <a [routerLink]="[racks_url, patchcord.end.rack.id]">
-                                            {{ patchcord.end.rack.name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Оборудование</td>
-                                    <td>
-                                        <a [routerLink]="patchcord.end.owner.type === 'Patchpanel' ? 
-                                                            [patchpanels_url, patchcord.end.owner.id] : 
-                                                            [devices_url, patchcord.end.owner.id]">
-                                            {{ patchcord.end.owner.name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Интерфейс</td>
-                                    <td>
-                                        {{ patchcord.end.interface.name }}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
+<app-card [title]="patchcord.type | humanView">
+    <a class="link color-red" (click)="onDelete()" actions>
+        Удалить
+    </a>
+
+    <div class="row w-100">
+        <div class="w-33">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Начало</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Стойка</td>
+                        <td>
+                            <a [routerLink]="[racks_url, patchcord.start.rack.id]">
+                                {{ patchcord.start.rack.name }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Оборудование</td>
+                        <td>
+                            <a [routerLink]="patchcord.start.owner.type === 'Patchpanel' ? 
+                                                [patchpanels_url, patchcord.start.owner.id] : 
+                                                [devices_url, patchcord.start.owner.id]">
+                                {{ patchcord.start.owner.name }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Интерфейс</td>
+                        <td>
+                            {{ patchcord.start.interface.name }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="w-33"></div>
+        <div class="w-33">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Конец</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Стойка</td>
+                        <td>
+                            <a [routerLink]="[racks_url, patchcord.end.rack.id]">
+                                {{ patchcord.end.rack.name }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Оборудование</td>
+                        <td>
+                            <a [routerLink]="patchcord.end.owner.type === 'Patchpanel' ? 
+                                                [patchpanels_url, patchcord.end.owner.id] : 
+                                                [devices_url, patchcord.end.owner.id]">
+                                {{ patchcord.end.owner.name }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Интерфейс</td>
+                        <td>
+                            {{ patchcord.end.interface.name }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-</div>
+</app-card>
