@@ -8,17 +8,10 @@ import {RoomsIndexComponent} from "./rooms/index/rooms-index.component";
 import {RacksComponent} from "./racks/racks.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RoomsService} from "../services/rooms.service";
-import {RoomItemComponent} from "./rooms/index/room/room-item.component";
-import {RoomsComponent} from "./rooms/rooms.component";
-import {RoomsNewComponent} from "./rooms/new/rooms-new.component";
-import {RoomsFormComponent} from "./rooms/form/rooms-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {RoomsEditComponent} from "./rooms/edit/rooms-edit.component";
-import {RoomsShowComponent} from "./rooms/show/rooms-show.component";
 import {BreadcrumbService} from "../services/breadcrumb.service";
 import {RacksIndexComponent} from "./racks/index/racks-index.component";
 import {RacksService} from "../services/racks.service";
-import {RoomRackItemComponent} from "./rooms/show/rack/room-rack-item.component";
 import {RackShowComponent} from "./racks/show/rack-show.component"
 import {RacksNewComponent} from "./racks/new/racks-new.component";
 import {RacksFormComponent} from "./racks/form/racks-form.component";
@@ -34,6 +27,7 @@ import { CablesModule } from "./cables/cables.module";
 import { CablesService } from "../services/cables.service";
 import { LogicalLinksModule } from "./logical-links/logical-links.module";
 import { LogicalLinksService } from "../services/logical-links.service";
+import { RoomsModule } from "./rooms/rooms.module";
 
 @NgModule({
   declarations: [
@@ -42,14 +36,7 @@ import { LogicalLinksService } from "../services/logical-links.service";
     RoomsIndexComponent,
     RacksComponent,
     FooterComponent,
-    RoomsComponent,
-    RoomItemComponent,
-    RoomsNewComponent,
-    RoomsFormComponent,
-    RoomsEditComponent,
-    RoomsShowComponent,
     RacksIndexComponent,
-    RoomRackItemComponent,
     RackShowComponent,
     RacksNewComponent,
     RacksFormComponent,
@@ -60,6 +47,7 @@ import { LogicalLinksService } from "../services/logical-links.service";
     RouterModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    RoomsModule,
     PatchpanelsModule,
     SharedModule,
     DevicesModule,
@@ -73,14 +61,7 @@ import { LogicalLinksService } from "../services/logical-links.service";
     RoomsIndexComponent,
     RacksComponent,
     FooterComponent,
-    RoomsComponent,
-    RoomItemComponent,
-    RoomsNewComponent,
-    RoomsFormComponent,
-    RoomsEditComponent,
-    RoomsShowComponent,
     RacksIndexComponent,
-    RoomRackItemComponent,
     RackShowComponent,
     RacksNewComponent,
     RacksFormComponent,
