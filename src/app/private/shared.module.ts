@@ -4,6 +4,7 @@ import {HeaderComponent} from "./header/header.component";
 import {RouterModule} from "@angular/router";
 import {TextTransformPipe} from "../services/text-transform.pipe"
 import { CardComponent } from "./shared/card/card.component";
+import { TableComponent } from "./shared/table/table.component";
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import { CardComponent } from "./shared/card/card.component";
   declarations: [
     HeaderComponent,
     TextTransformPipe,
-    CardComponent
+    CardComponent,
+    TableComponent
   ],
   exports: [
     HeaderComponent,
     TextTransformPipe,
-    CardComponent
+    CardComponent,
+    TableComponent
   ]
 })
 export class SharedModule {
