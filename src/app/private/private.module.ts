@@ -28,6 +28,7 @@ import { LogicalLinksModule } from "./logical-links/logical-links.module";
 import { LogicalLinksService } from "../services/logical-links.service";
 import { RoomsModule } from "./rooms/rooms.module";
 import { RacksModule } from "./racks/racks.module";
+import { MaterialModule } from "./material.module";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RacksModule } from "./racks/racks.module";
     DevicesModule,
     PatchcordsModule,
     CablesModule,
-    LogicalLinksModule
+    LogicalLinksModule,
+    MaterialModule
   ],
   exports: [
     PrivateComponent,

@@ -1,6 +1,6 @@
 <app-header title="Логические связи"></app-header>
 
-<app-card title="Существующие логические связи">
+<app-card title="Существующие логические связи ">
     <a [routerLink]="[new_url]" actions>
         <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
     </a>
@@ -9,57 +9,76 @@
     <p class="card-spinner" *ngIf="!spinnerShow && logicalLinks.length === 0">
         Нет логических связей
     </p>
-    <table class="table" *ngIf="!spinnerShow && logicalLinks.length > 0">
-        <thead>
-            <tr>
-                <td></td>
-                <td>Начало стойка</td>
-                <td>Начало оборудование</td>
-                <td>Начало порт</td>
-                <td>Конец стойка</td>
-                <td>Конец оборудование</td>
-                <td>Конец порт</td>
-                <td>Тип</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of logicalLinks">
-                <td>
-                    <a [routerLink]="[item.id]">
-                        <fa-icon [icon]="viewIcon" size="1x" class="color-red"></fa-icon>
-                    </a>
-                </td>
-                <td>
-                    <a [routerLink]="[racks_url, item.start.rack.id]">
-                        {{ item.start.rack.name }}
-                    </a>
-                </td>
-                <td>
-                    <a [routerLink]="[devices_url, item.start.device.id]">
-                        {{ item.start.device.name }}
-                    </a>
-                </td>
-                <td>
-                    {{ item.start.interface.name }}
-                </td>
+    <table mat-table [dataSource]="dataSource" *ngIf="!spinnerShow && logicalLinks.length > 0">
 
-                <td>
-                    <a [routerLink]="[racks_url, item.end.rack.id]">
-                        {{ item.end.rack.name }}
-                    </a>
-                </td>
-                <td>
-                    <a [routerLink]="[devices_url, item.end.device.id]">
-                        {{ item.end.device.name }}
-                    </a>
-                </td>
-                <td>
-                    {{ item.end.interface.name }}
-                </td>
-                <td>
-                    {{ item.start.interface.type | humanView }}
-                </td>
-            </tr>
-        </tbody>
+        <ng-container matColumnDef="rowAction">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let item">
+                <a [routerLink]="[item.id]">
+                    <fa-icon [icon]="viewIcon" size="1x" class="color-red"></fa-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="startRack">
+            <th mat-header-cell *matHeaderCellDef>Начало стойка</th>
+            <td mat-cell *matCellDef="let item">
+                <a [routerLink]="[racks_url, item.start.rack.id]">
+                    {{ item.start.rack.name }}
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="startDevice">
+            <th mat-header-cell *matHeaderCellDef>Начало оборудование</th>
+            <td mat-cell *matCellDef="let item">
+                <a [routerLink]="[devices_url, item.start.device.id]">
+                    {{ item.start.device.name }}
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="startInterface">
+            <th mat-header-cell *matHeaderCellDef>Начало порт</th>
+            <td mat-cell *matCellDef="let item">
+                {{ item.start.interface.name }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="endRack">
+            <th mat-header-cell *matHeaderCellDef>Конец стойка</th>
+            <td mat-cell *matCellDef="let item">
+                <a [routerLink]="[racks_url, item.start.rack.id]">
+                    {{ item.end.rack.name }}
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="endDevice">
+            <th mat-header-cell *matHeaderCellDef>Конец оборудование</th>
+            <td mat-cell *matCellDef="let item">
+                <a [routerLink]="[devices_url, item.start.device.id]">
+                    {{ item.end.device.name }}
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="endInterface">
+            <th mat-header-cell *matHeaderCellDef>Конец порт</th>
+            <td mat-cell *matCellDef="let item">
+                {{ item.end.interface.name }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef>Тип</th>
+            <td mat-cell *matCellDef="let item">
+                {{ item.start.interface.type | humanView }}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </app-card>
+
