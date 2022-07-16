@@ -7,6 +7,8 @@ import { CardComponent } from "./shared/card/card.component";
 import { MaterialModule } from "./material.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatPaginatorIntl } from "@angular/material/paginator";
+import { AppPaginatorIntl } from "../directives/app-paginator-intl";
 
 @NgModule({
   imports: [
@@ -30,6 +32,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     CommonModule,
     RouterModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: AppPaginatorIntl }
   ]
 })
 export class SharedModule {

@@ -6,6 +6,7 @@ import {retry} from "rxjs";
 import {Rack, RackNew, RackUpdated} from "../models/rack"
 import {Patchpanel} from "../models/patchpanel";
 import {Device} from "../models/device";
+import { GetParams } from "../models/get-params";
 
 @Injectable()
 export class RacksService {
@@ -13,8 +14,8 @@ export class RacksService {
 
   constructor(private http: HttpClient) {  }
 
-  getAll() {
-    return this.http.get<Rack[]>(environment.apiUrl + this.url)
+  getAll(params: Partial<GetParams> = {}) {
+    return this.http.get<Rack[]>(environment.apiUrl + this.url, {params: params})
       .pipe(retry(2))
   }
 
