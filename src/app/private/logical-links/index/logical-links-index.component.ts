@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
 import { faCirclePlus, faEye, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { DEVICES_URL, LOGICAL_LINKS_URL, NEW, RACKS_URL } from "src/app/consts";
@@ -21,6 +22,11 @@ export class LogicalLinksIndexComponent implements OnInit {
     racks_url = RACKS_URL
     devices_url = DEVICES_URL
 
+    displayedColumns: string[] = ['rowAction', 'startRack', 'startDevice', 'startInterface',
+                                                'endRack', 'endDevice', 'endInterface', 'type'];
+    dataSource = new MatTableDataSource<LogicalLink>()
+
+
     constructor(private breadcrumbs: BreadcrumbService,
                 private toastr: ToastrService,
                 private logicalLinkService: LogicalLinksService) {
@@ -35,6 +41,7 @@ export class LogicalLinksIndexComponent implements OnInit {
                 next: (data) => {
                     this.logicalLinks = data
                     this.spinnerShow = false
+                    this.dataSource = new MatTableDataSource(data)
                 },
                 error: (error) => { this.toastr.error(error) }
             })
