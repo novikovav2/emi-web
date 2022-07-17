@@ -13,8 +13,8 @@ export class PatchpanelsService {
 
   constructor(private http: HttpClient) {  }
 
-  getAll() {
-    return this.http.get<Patchpanel[]>(environment.apiUrl + this.url)
+  getAll(params: Partial<GetParams> = {}) {
+    return this.http.get<Patchpanel[]>(environment.apiUrl + this.url, { params })
       .pipe(retry(2))
   }
 

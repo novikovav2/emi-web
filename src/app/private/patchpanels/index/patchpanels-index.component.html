@@ -5,34 +5,47 @@
     <fa-icon [icon]="addIcon" size="2x" class="color-red"></fa-icon>
   </a>
 
+  <div class="form-control w-100">
+    <input class="form-input w-100" placeholder="Фильтр" (keyup)="filter($event)">
+  </div>
+
   <fa-icon [icon]="spinnerIcon" size="2x" [pulse]="true" *ngIf="spinnerShow" class="card-spinner"></fa-icon>
-  <p class="card-spinner" *ngIf="!spinnerShow && patchpanels.length === 0">
+  <p class="card-spinner" *ngIf="!spinnerShow && dataSource.data.length === 0">
     Нет патчпанелей
   </p>
-  <table class="table" *ngIf="!spinnerShow && patchpanels.length > 0">
-    <thead>
-      <tr>
-        <td>Название</td>
-        <td>Стойка</td>
-        <td>Материал</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of patchpanels">
-        <td>
-          <a [routerLink]="[item.id]">
-            {{ item.name }}
-          </a>
-        </td>
-        <td>
-          <a [routerLink]="[racks_url, item.rack.id]">
-            {{ item.rack.name }}
-          </a>
-        </td>
-        <td>
-          {{ item.type | humanView }}
-        </td>
-      </tr>
-    </tbody>
+  
+  <table mat-table [dataSource]="dataSource" *ngIf="!spinnerShow && dataSource.data.length > 0" 
+    matSort (matSortChange)="sortFunction($event)">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
+      <td mat-cell *matCellDef="let item">
+        <a [routerLink]="[item.id]">
+          {{ item.name }}
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rack">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Стойка</th>
+      <td mat-cell *matCellDef="let item">
+        <a [routerLink]="[racks_url, item.rack.id]">
+          {{ item.rack.name }}
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="material">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Тип</th>
+      <td mat-cell *matCellDef="let item">
+        {{ item.type | humanView }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons footer>
+  </mat-paginator>
 </app-card>

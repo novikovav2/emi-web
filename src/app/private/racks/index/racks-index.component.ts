@@ -54,13 +54,8 @@ export class RacksIndexComponent implements OnInit {
         },
         error: (error) => {
           this.toastr.error(error)
-          console.log(error)
         }
       })
-  }
-
-  newRack() {
-    console.log("NEW RACK")
   }
 
   sortFunction(sortState: Sort) {

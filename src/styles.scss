@@ -79,6 +79,12 @@
   font-size: 16px;
 }
 
+.mat-sort-header {
+  & .mat-sort-header-container {
+    justify-content: center;
+  }
+}
+
 .mat-sort-header:first-child {
   & .mat-sort-header-container {
     justify-content: start;
