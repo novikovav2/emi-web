@@ -1,12 +1,15 @@
-import {Component, Input, OnChanges, SimpleChanges} from "@angular/core";
+import {Component, Input, OnChanges, SimpleChanges, ViewChild} from "@angular/core";
 import {Patchpanel, PATCHPANEL_DEFAULT} from "../../../../models/patchpanel";
-import {faCaretDown, faCaretUp, faSpinner, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {PatchpanelsService} from "../../../../services/patchpanels.service";
 import {Interface} from "../../../../models/interface";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {INTERFACE_CREATED, INTERFACE_DELETED} from "../../../../consts";
-import {directionOrder, GetParams} from "../../../../models/get-params";
+import { GetParams} from "../../../../models/get-params";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort, Sort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: 'app-patchpanel-interfaces',
@@ -15,14 +18,14 @@ import {directionOrder, GetParams} from "../../../../models/get-params";
 })
 export class PatchpanelsInterfacesComponent implements OnChanges {
   @Input() patchpanel: Patchpanel = PATCHPANEL_DEFAULT
-  interfaces: Interface[] = []
   spinnerShow = true
   spinnerIcon = faSpinner
   trashIcon = faTrashCan
-  orderBy = 'name'
-  orderDirection: directionOrder = 'asc'
-  sortAscIcon = faCaretDown
-  sortDescIcon = faCaretUp
+
+  @ViewChild(MatPaginator) paginator:any = MatPaginator
+  @ViewChild(MatSort) sort:any = MatSort
+  displayedColumns: string[] = ['name', 'connected', 'action']
+  dataSource = new MatTableDataSource<Interface>()
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required])
@@ -39,21 +42,16 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
     }
   }
 
-  getData(id: string) {
-    const params: Partial<GetParams> = {
-      order: this.orderBy,
-      direction: this.orderDirection
-    }
+  getData(id: string, params: Partial<GetParams> = {}) {
     this.patchpanelService.getInterfaces(id, params)
       .subscribe({
         next: (data) => {
-          this.interfaces = data
+          this.dataSource = new MatTableDataSource<Interface>(data)
+          this.dataSource.paginator = this.paginator
+          this.dataSource.sort = this.sort
           this.spinnerShow = false
         },
-        error: (error) => {
-          console.log(error)
-          this.toastr.error(error)
-        }
+        error: (error) => { this.toastr.error(error) }
       })
   }
 
@@ -89,15 +87,11 @@ export class PatchpanelsInterfacesComponent implements OnChanges {
       })
   }
 
-  changeOrder(order: string) {
-    this.spinnerShow = true
-    if (this.orderBy === order ) {
-      this.orderDirection = this.orderDirection === 'asc' ? 'desc' : 'asc'
-    } else  {
-      this.orderBy = order
-      this.orderDirection = 'asc'
+  sortFunction(sortState: Sort) {
+    const params: Partial<GetParams> = {
+      order: sortState.active,
+      direction: sortState.direction
     }
-
-    this.getData(this.patchpanel.id)
+    this.getData(this.patchpanel.id, params)
   }
 }
